@@ -1,11 +1,11 @@
 #周宇盛的博客
-主要内容：
+##主要内容：
 
 * 学习网页制作过程中的收获
 * 读书笔记
 * 随笔
 
-#学习计划
+##学习计划
 
 * 利用`HTML`、`CSS`、`Bootstrap`、`FontAwesome`、`Javascript`、`jQuery`实现简单的静态页面
 * 利用`Animate.js``ScrollReveal.js``jQuery_Lazyload``Headroom``Hover``lightgallery``flv.js``granim.js`等库实现更加有意思的静态页面
