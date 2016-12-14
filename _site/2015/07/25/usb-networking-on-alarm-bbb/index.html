@@ -14,7 +14,7 @@
   
   <title>
     
-      ArchLinuxARM on BeagleBone Black: getting network working over USB &middot; Hic sunt leones
+      ArchLinuxARM on BeagleBone Black: getting network working over USB &middot; 周宇盛的博客
     
   </title>
 
@@ -91,8 +91,8 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="/" title="Home">Hic sunt leones</a>
-            <small>AKA Giovanni Santini's personal blog. For real, yeah.</small>
+            <a href="/" title="Home">周宇盛的博客</a>
+            <small>网页制作 学习笔记 读书笔记</small>
           </h3>
           
 
@@ -109,8 +109,8 @@ for <a href="http://archlinuxarm.org">ArchLinuxARM</a> (a port of the magnificen
 This is made for this kind of setup:</p>
 
 <ul>
-<li>a shared DHCP connection through NetworkManager (can be adapted to everything else though)</li>
-<li>a <em>BeagleBoneBlack</em> connected by mini-USB to the computer.</li>
+  <li>a shared DHCP connection through NetworkManager (can be adapted to everything else though)</li>
+  <li>a <em>BeagleBoneBlack</em> connected by mini-USB to the computer.</li>
 </ul>
 
 <p>With this tutorial you will have a working shared network between the <em>BeagleBoneBlack</em>
@@ -120,83 +120,84 @@ with included dynamic IP resolution (no more <em>ssh IP_HERE</em>).</p>
 <p>Some thoughts:</p>
 
 <ul>
-<li>I&#39;ll say when commands have to be done on the <em>host</em> (see: your computer/laptop),
+  <li>I’ll say when commands have to be done on the <em>host</em> (see: your computer/laptop),
 else they have to be done on the client (the <em>BeagleBoneBlack</em>).</li>
-<li>In a theoric way, this tutorial should be fine for any <strong>ArchLinuxARM</strong> device;
+  <li>In a theoric way, this tutorial should be fine for any <strong>ArchLinuxARM</strong> device;
 just pay a bit more of attention.</li>
-<li>I assume that the users reading this tutorial are a bit experienced (else <em>GTFO</em>);
+  <li>I assume that the users reading this tutorial are a bit experienced (else <em>GTFO</em>);
 also, the commands with before a <em>$</em>
 will be commands that can be given as users, the ones with <em>!</em> should be given
 by the user <em>root</em>.</li>
 </ul>
 
-<h2>Let&#39;s do this</h2>
-
+<h2 id="lets-do-this">Let’s do this</h2>
 <p>So, these are the steps:</p>
 
 <ul>
-<li><p>Install <strong><em>ArchLinuxARM</em></strong> (from now on <strong>ALARM</strong>) on your <em>BeagleBoneBlack</em>;
+  <li>
+    <p>Install <strong><em>ArchLinuxARM</em></strong> (from now on <strong>ALARM</strong>) on your <em>BeagleBoneBlack</em>;
 for this, I just suggest the
 <a href="http://archlinuxarm.org/platforms/armv7/ti/beaglebone-black">official tutorial</a>.
-For the following part of this tutorial, I assume you&#39;ve installed your <strong>ALARM</strong>
-(on MicroSD or on eMMC is the same).</p></li>
-<li><p>From your <em>host</em>, share connection to your <em>BeagleBoneBoard</em>;
+For the following part of this tutorial, I assume you’ve installed your <strong>ALARM</strong>
+(on MicroSD or on eMMC is the same).</p>
+  </li>
+  <li>From your <em>host</em>, share connection to your <em>BeagleBoneBoard</em>;
 I did this by connecting the device using an Ethernet cable plus an USB for power.
-Also, I allowed sharing connection through Ethernet with <em>NetworkManager</em></p>
-
-<ul>
-<li>install <em>dnsmasq</em>, as it will allow shared networking through NetworkManager</li>
-<li>open <em>nm-connection-editor</em></li>
-<li>Suggested: create a specific connection for the <em>BeagleBoneBlack</em> with <em>nm-connection-editor</em></li>
-<li>under IPv4 settings set &quot;<em>Shared</em>&quot;</li>
-</ul></li>
-<li><p>I had then to use <em>nmap</em> on the <em>host</em> to find out the IP</p>
-
-<ul>
-<li>go on NetworkManager</li>
-<li>find out the IP of the shared Ethernet network (<em>e.g. 10.42.0.1</em>)</li>
-<li>find the actual IP of the <em>BeagleBoardBlack</em> by inspecting the network, doing something like:</li>
-</ul></li>
+Also, I allowed sharing connection through Ethernet with <em>NetworkManager</em>
+    <ul>
+      <li>install <em>dnsmasq</em>, as it will allow shared networking through NetworkManager</li>
+      <li>open <em>nm-connection-editor</em></li>
+      <li>Suggested: create a specific connection for the <em>BeagleBoneBlack</em> with <em>nm-connection-editor</em></li>
+      <li>under IPv4 settings set “<em>Shared</em>”</li>
+    </ul>
+  </li>
+  <li>I had then to use <em>nmap</em> on the <em>host</em> to find out the IP
+    <ul>
+      <li>go on NetworkManager</li>
+      <li>find out the IP of the shared Ethernet network (<em>e.g. 10.42.0.1</em>)</li>
+      <li>find the actual IP of the <em>BeagleBoardBlack</em> by inspecting the network, doing something like:</li>
+    </ul>
+  </li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ nmap <span class="m">10</span>.42.0.1/24
-<span class="c1"># Here comes the output</span>
-Starting Nmap <span class="m">6</span>.47 <span class="o">(</span> http://nmap.org <span class="o">)</span> at <span class="m">2015</span>-07-24 <span class="m">17</span>:21 CEST
-Nmap scan report <span class="k">for</span> <span class="m">10</span>.42.0.1
-Host is up <span class="o">(</span><span class="m">0</span>.00064s latency<span class="o">)</span>.
-Not shown: <span class="m">999</span> closed ports
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>nmap 10.42.0.1/24
+<span class="c"># Here comes the output</span>
+Starting Nmap 6.47 <span class="o">(</span> http://nmap.org <span class="o">)</span> at 2015-07-24 17:21 CEST
+Nmap scan report <span class="k">for </span>10.42.0.1
+Host is up <span class="o">(</span>0.00064s latency<span class="o">)</span>.
+Not shown: 999 closed ports
 PORT   STATE SERVICE
-<span class="m">53</span>/tcp open  domain
-<span class="c1"># Here it is!</span>
-Nmap scan report <span class="k">for</span> <span class="m">10</span>.42.0.143
-Host is up <span class="o">(</span><span class="m">0</span>.00056s latency<span class="o">)</span>.
-Not shown: <span class="m">999</span> closed ports
+53/tcp open  domain
+<span class="c"># Here it is!</span>
+Nmap scan report <span class="k">for </span>10.42.0.143
+Host is up <span class="o">(</span>0.00056s latency<span class="o">)</span>.
+Not shown: 999 closed ports
 PORT   STATE SERVICE
-<span class="m">22</span>/tcp open  ssh <span class="c1"># See, SSH port is open</span>
-Nmap <span class="k">done</span>: <span class="m">256</span> IP addresses <span class="o">(</span><span class="m">2</span> hosts up<span class="o">)</span> scanned in <span class="m">2</span>.56 seconds</code></pre></figure>
+22/tcp open  ssh <span class="c"># See, SSH port is open</span>
+Nmap <span class="k">done</span>: 256 IP addresses <span class="o">(</span>2 hosts up<span class="o">)</span> scanned <span class="k">in </span>2.56 seconds</code></pre></figure>
 
 <ul>
-<li>Actually, connect from the <em>host</em> to your device with <strong>SSH</strong></li>
+  <li>Actually, connect from the <em>host</em> to your device with <strong>SSH</strong></li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ ssh root@10.42.0.143 <span class="c1"># Use the IP found in the step before, user &#39;root&#39; password &#39;root&#39;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>ssh root@10.42.0.143 <span class="c"># Use the IP found in the step before, user 'root' password 'root'</span></code></pre></figure>
 
 <ul>
-<li>In order to work with just the USB cable, you need to download the <em>gadget-deadbeef-dhcp</em> package;
+  <li>In order to work with just the USB cable, you need to download the <em>gadget-deadbeef-dhcp</em> package;
 the package was meant to enable connections through USB, I made the <em>-dhcp</em> version to have dynamic IP
-(we won&#39;t have problem with it later). You can get it with a:</li>
+(we won’t have problem with it later). You can get it with a:</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ yaourt -S gadget-deadbeef-dhcp</code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>yaourt -S gadget-deadbeef-dhcp</code></pre></figure>
 
 <p>Else, you will have to build it:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>! pacman -S base base-devel wget <span class="c1"># Let&#39;s have all installed</span>
-$ wget https://aur4.archlinux.org/cgit/aur.git/snapshot/gadget-deadbeef-dhcp.tar.gz
-$ tar xf gadget-deadbeef-dhcp.tar.gz
-$ <span class="nb">cd</span> gadget-deadbeef-dhcp
-$ makepkg -srci <span class="c1"># Builds without dependencies problems, clean up the temporary files and install</span>
-<span class="c1"># If you&#39;ve problems, use &#39;pacman -U&#39; as root</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">! pacman -S base base-devel wget <span class="c"># Let's have all installed</span>
+<span class="gp">$ </span>wget https://aur4.archlinux.org/cgit/aur.git/snapshot/gadget-deadbeef-dhcp.tar.gz
+<span class="gp">$ </span>tar xf gadget-deadbeef-dhcp.tar.gz
+<span class="gp">$ </span><span class="nb">cd </span>gadget-deadbeef-dhcp
+<span class="gp">$ </span>makepkg -srci <span class="c"># Builds without dependencies problems, clean up the temporary files and install</span>
+<span class="c"># If you've problems, use 'pacman -U' as root</span></code></pre></figure>
 
 <p><strong>Notice</strong>: people that want it to work even with <em>Windows</em> have to install
 the <em>gadget-deadbeef-legacy-dhcp</em> package, as the one above uses a driver which
@@ -205,37 +206,36 @@ just follow the steps above, replacing <em>gadget-deadbeef-dhcp</em> with <em>ga
 
 <p><strong>PRO TIP</strong>: I had to reinstall the official <strong>BeagleBoard</strong> drivers, which can
 be found <a href="http://beagleboard.org/getting-started#step2">here</a>. I had problems as
-<em>Windows 8.1</em> didn&#39;t allow me to install <em>unsigned</em> drivers; so, if you get to
+<em>Windows 8.1</em> didn’t allow me to install <em>unsigned</em> drivers; so, if you get to
 the last step of drivers installation and you get red crosses (<em>error in installation</em>)
-and you don&#39;t know why, try reinstalling after doing
+and you don’t know why, try reinstalling after doing
 <a href="http://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/">this</a>.</p>
 
 <ul>
-<li>Now we have to set up things for hostname resolution. Well&#39;use <em>Samba</em> for this.
-It can be used for many more things, but in this case we&#39;ll use just its <strong><em>NetBIOS</em></strong> ability.
+  <li>Now we have to set up things for hostname resolution. Well’use <em>Samba</em> for this.
+It can be used for many more things, but in this case we’ll use just its <strong><em>NetBIOS</em></strong> ability.
 So, get <em>Samba</em> and enable the <em>NetBIOS</em> daemon:</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>! pacman -S samba
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">! pacman -S samba
 ! cp /etc/samba/smb.conf.default /etc/samba/smb.conf
-! systemctl <span class="nb">enable</span> nmbd
+! systemctl <span class="nb">enable </span>nmbd
 ! systemctl start nmbd</code></pre></figure>
 
 <ul>
-<li>On the <em>host</em>, enable <em>NetBIOS</em> name resolution by adding <em>wins</em> to the <em>/etc/nsswitch.conf</em> file.
+  <li>On the <em>host</em>, enable <em>NetBIOS</em> name resolution by adding <em>wins</em> to the <em>/etc/nsswitch.conf</em> file.
 It will look like this:</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ cat /etc/nsswitch.conf 
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>cat /etc/nsswitch.conf 
 ...
-hosts: files wins dns myhostname <span class="c1"># See? We added &#39;wins&#39; </span>
+hosts: files wins dns myhostname <span class="c"># See? We added 'wins' </span>
 ...</code></pre></figure>
 
-<h2>And now?</h2>
-
+<h2 id="and-now">And now?</h2>
 <p>Now, just connect with a</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ ssh alarm <span class="c1"># Assuming that you&#39;ve not changed the BeagleBoneBlack hostname</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>ssh alarm <span class="c"># Assuming that you've not changed the BeagleBoneBlack hostname</span></code></pre></figure>
 
 <p>No more fuss for looking for IP, setting things or else.
 This tutorial is a bit long, but I hope it can be useful to someone. Cheers.</p>
@@ -337,21 +337,6 @@ This tutorial is a bit long, but I hope it can be useful to someone. Cheers.</p>
       })(document);
     </script>
     
-	<!-- Google Analytics -->
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-61816764-1', 'auto');
-		ga('send', 'pageview', {
-		  'page': '/2015/07/25/usb-networking-on-alarm-bbb/',
-		  'title': 'ArchLinuxARM on BeagleBone Black: getting network working over USB'
-		});
-	</script>
-	<!-- End Google Analytics -->
-
 
   </body>
 </html>

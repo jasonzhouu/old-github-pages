@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Hic sunt leones</title>
+ <title>周宇盛的博客</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2016-12-14T16:08:59+08:00</updated>
+ <updated>2016-12-14T18:33:09+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
-   <name>Giovanni Santini</name>
+   <name>Jason Zhou</name>
    <email>jasonzhouu@163.com</email>
  </author>
 
@@ -23,8 +23,8 @@ for &lt;a href=&quot;http://archlinuxarm.org&quot;&gt;ArchLinuxARM&lt;/a&gt; (a 
 This is made for this kind of setup:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;a shared DHCP connection through NetworkManager (can be adapted to everything else though)&lt;/li&gt;
-&lt;li&gt;a &lt;em&gt;BeagleBoneBlack&lt;/em&gt; connected by mini-USB to the computer.&lt;/li&gt;
+  &lt;li&gt;a shared DHCP connection through NetworkManager (can be adapted to everything else though)&lt;/li&gt;
+  &lt;li&gt;a &lt;em&gt;BeagleBoneBlack&lt;/em&gt; connected by mini-USB to the computer.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;With this tutorial you will have a working shared network between the &lt;em&gt;BeagleBoneBlack&lt;/em&gt;
@@ -34,83 +34,84 @@ with included dynamic IP resolution (no more &lt;em&gt;ssh IP_HERE&lt;/em&gt;).&
 &lt;p&gt;Some thoughts:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;I&amp;#39;ll say when commands have to be done on the &lt;em&gt;host&lt;/em&gt; (see: your computer/laptop),
+  &lt;li&gt;I’ll say when commands have to be done on the &lt;em&gt;host&lt;/em&gt; (see: your computer/laptop),
 else they have to be done on the client (the &lt;em&gt;BeagleBoneBlack&lt;/em&gt;).&lt;/li&gt;
-&lt;li&gt;In a theoric way, this tutorial should be fine for any &lt;strong&gt;ArchLinuxARM&lt;/strong&gt; device;
+  &lt;li&gt;In a theoric way, this tutorial should be fine for any &lt;strong&gt;ArchLinuxARM&lt;/strong&gt; device;
 just pay a bit more of attention.&lt;/li&gt;
-&lt;li&gt;I assume that the users reading this tutorial are a bit experienced (else &lt;em&gt;GTFO&lt;/em&gt;);
+  &lt;li&gt;I assume that the users reading this tutorial are a bit experienced (else &lt;em&gt;GTFO&lt;/em&gt;);
 also, the commands with before a &lt;em&gt;$&lt;/em&gt;
 will be commands that can be given as users, the ones with &lt;em&gt;!&lt;/em&gt; should be given
 by the user &lt;em&gt;root&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2&gt;Let&amp;#39;s do this&lt;/h2&gt;
-
+&lt;h2 id=&quot;lets-do-this&quot;&gt;Let’s do this&lt;/h2&gt;
 &lt;p&gt;So, these are the steps:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Install &lt;strong&gt;&lt;em&gt;ArchLinuxARM&lt;/em&gt;&lt;/strong&gt; (from now on &lt;strong&gt;ALARM&lt;/strong&gt;) on your &lt;em&gt;BeagleBoneBlack&lt;/em&gt;;
+  &lt;li&gt;
+    &lt;p&gt;Install &lt;strong&gt;&lt;em&gt;ArchLinuxARM&lt;/em&gt;&lt;/strong&gt; (from now on &lt;strong&gt;ALARM&lt;/strong&gt;) on your &lt;em&gt;BeagleBoneBlack&lt;/em&gt;;
 for this, I just suggest the
 &lt;a href=&quot;http://archlinuxarm.org/platforms/armv7/ti/beaglebone-black&quot;&gt;official tutorial&lt;/a&gt;.
-For the following part of this tutorial, I assume you&amp;#39;ve installed your &lt;strong&gt;ALARM&lt;/strong&gt;
-(on MicroSD or on eMMC is the same).&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;From your &lt;em&gt;host&lt;/em&gt;, share connection to your &lt;em&gt;BeagleBoneBoard&lt;/em&gt;;
+For the following part of this tutorial, I assume you’ve installed your &lt;strong&gt;ALARM&lt;/strong&gt;
+(on MicroSD or on eMMC is the same).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;From your &lt;em&gt;host&lt;/em&gt;, share connection to your &lt;em&gt;BeagleBoneBoard&lt;/em&gt;;
 I did this by connecting the device using an Ethernet cable plus an USB for power.
-Also, I allowed sharing connection through Ethernet with &lt;em&gt;NetworkManager&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;install &lt;em&gt;dnsmasq&lt;/em&gt;, as it will allow shared networking through NetworkManager&lt;/li&gt;
-&lt;li&gt;open &lt;em&gt;nm-connection-editor&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Suggested: create a specific connection for the &lt;em&gt;BeagleBoneBlack&lt;/em&gt; with &lt;em&gt;nm-connection-editor&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;under IPv4 settings set &amp;quot;&lt;em&gt;Shared&lt;/em&gt;&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;I had then to use &lt;em&gt;nmap&lt;/em&gt; on the &lt;em&gt;host&lt;/em&gt; to find out the IP&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;go on NetworkManager&lt;/li&gt;
-&lt;li&gt;find out the IP of the shared Ethernet network (&lt;em&gt;e.g. 10.42.0.1&lt;/em&gt;)&lt;/li&gt;
-&lt;li&gt;find the actual IP of the &lt;em&gt;BeagleBoardBlack&lt;/em&gt; by inspecting the network, doing something like:&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+Also, I allowed sharing connection through Ethernet with &lt;em&gt;NetworkManager&lt;/em&gt;
+    &lt;ul&gt;
+      &lt;li&gt;install &lt;em&gt;dnsmasq&lt;/em&gt;, as it will allow shared networking through NetworkManager&lt;/li&gt;
+      &lt;li&gt;open &lt;em&gt;nm-connection-editor&lt;/em&gt;&lt;/li&gt;
+      &lt;li&gt;Suggested: create a specific connection for the &lt;em&gt;BeagleBoneBlack&lt;/em&gt; with &lt;em&gt;nm-connection-editor&lt;/em&gt;&lt;/li&gt;
+      &lt;li&gt;under IPv4 settings set “&lt;em&gt;Shared&lt;/em&gt;”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;I had then to use &lt;em&gt;nmap&lt;/em&gt; on the &lt;em&gt;host&lt;/em&gt; to find out the IP
+    &lt;ul&gt;
+      &lt;li&gt;go on NetworkManager&lt;/li&gt;
+      &lt;li&gt;find out the IP of the shared Ethernet network (&lt;em&gt;e.g. 10.42.0.1&lt;/em&gt;)&lt;/li&gt;
+      &lt;li&gt;find the actual IP of the &lt;em&gt;BeagleBoardBlack&lt;/em&gt; by inspecting the network, doing something like:&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;$ nmap &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;.42.0.1/24
-&lt;span class=&quot;c1&quot;&gt;# Here comes the output&lt;/span&gt;
-Starting Nmap &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;.47 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; http://nmap.org &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; at &lt;span class=&quot;m&quot;&gt;2015&lt;/span&gt;-07-24 &lt;span class=&quot;m&quot;&gt;17&lt;/span&gt;:21 CEST
-Nmap scan report &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;.42.0.1
-Host is up &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.00064s latency&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.
-Not shown: &lt;span class=&quot;m&quot;&gt;999&lt;/span&gt; closed ports
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;nmap 10.42.0.1/24
+&lt;span class=&quot;c&quot;&gt;# Here comes the output&lt;/span&gt;
+Starting Nmap 6.47 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; http://nmap.org &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; at 2015-07-24 17:21 CEST
+Nmap scan report &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;10.42.0.1
+Host is up &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.00064s latency&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.
+Not shown: 999 closed ports
 PORT   STATE SERVICE
-&lt;span class=&quot;m&quot;&gt;53&lt;/span&gt;/tcp open  domain
-&lt;span class=&quot;c1&quot;&gt;# Here it is!&lt;/span&gt;
-Nmap scan report &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;.42.0.143
-Host is up &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;.00056s latency&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.
-Not shown: &lt;span class=&quot;m&quot;&gt;999&lt;/span&gt; closed ports
+53/tcp open  domain
+&lt;span class=&quot;c&quot;&gt;# Here it is!&lt;/span&gt;
+Nmap scan report &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;10.42.0.143
+Host is up &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.00056s latency&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.
+Not shown: 999 closed ports
 PORT   STATE SERVICE
-&lt;span class=&quot;m&quot;&gt;22&lt;/span&gt;/tcp open  ssh &lt;span class=&quot;c1&quot;&gt;# See, SSH port is open&lt;/span&gt;
-Nmap &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;: &lt;span class=&quot;m&quot;&gt;256&lt;/span&gt; IP addresses &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; hosts up&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; scanned in &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;.56 seconds&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+22/tcp open  ssh &lt;span class=&quot;c&quot;&gt;# See, SSH port is open&lt;/span&gt;
+Nmap &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;: 256 IP addresses &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2 hosts up&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; scanned &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;2.56 seconds&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Actually, connect from the &lt;em&gt;host&lt;/em&gt; to your device with &lt;strong&gt;SSH&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Actually, connect from the &lt;em&gt;host&lt;/em&gt; to your device with &lt;strong&gt;SSH&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;$ ssh root@10.42.0.143 &lt;span class=&quot;c1&quot;&gt;# Use the IP found in the step before, user &amp;#39;root&amp;#39; password &amp;#39;root&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ssh root@10.42.0.143 &lt;span class=&quot;c&quot;&gt;# Use the IP found in the step before, user 'root' password 'root'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
-&lt;li&gt;In order to work with just the USB cable, you need to download the &lt;em&gt;gadget-deadbeef-dhcp&lt;/em&gt; package;
+  &lt;li&gt;In order to work with just the USB cable, you need to download the &lt;em&gt;gadget-deadbeef-dhcp&lt;/em&gt; package;
 the package was meant to enable connections through USB, I made the &lt;em&gt;-dhcp&lt;/em&gt; version to have dynamic IP
-(we won&amp;#39;t have problem with it later). You can get it with a:&lt;/li&gt;
+(we won’t have problem with it later). You can get it with a:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;$ yaourt -S gadget-deadbeef-dhcp&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;yaourt -S gadget-deadbeef-dhcp&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Else, you will have to build it:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;! pacman -S base base-devel wget &lt;span class=&quot;c1&quot;&gt;# Let&amp;#39;s have all installed&lt;/span&gt;
-$ wget https://aur4.archlinux.org/cgit/aur.git/snapshot/gadget-deadbeef-dhcp.tar.gz
-$ tar xf gadget-deadbeef-dhcp.tar.gz
-$ &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; gadget-deadbeef-dhcp
-$ makepkg -srci &lt;span class=&quot;c1&quot;&gt;# Builds without dependencies problems, clean up the temporary files and install&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# If you&amp;#39;ve problems, use &amp;#39;pacman -U&amp;#39; as root&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;! pacman -S base base-devel wget &lt;span class=&quot;c&quot;&gt;# Let's have all installed&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;wget https://aur4.archlinux.org/cgit/aur.git/snapshot/gadget-deadbeef-dhcp.tar.gz
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;tar xf gadget-deadbeef-dhcp.tar.gz
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;gadget-deadbeef-dhcp
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;makepkg -srci &lt;span class=&quot;c&quot;&gt;# Builds without dependencies problems, clean up the temporary files and install&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# If you've problems, use 'pacman -U' as root&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;Notice&lt;/strong&gt;: people that want it to work even with &lt;em&gt;Windows&lt;/em&gt; have to install
 the &lt;em&gt;gadget-deadbeef-legacy-dhcp&lt;/em&gt; package, as the one above uses a driver which
@@ -119,37 +120,36 @@ just follow the steps above, replacing &lt;em&gt;gadget-deadbeef-dhcp&lt;/em&gt;
 
 &lt;p&gt;&lt;strong&gt;PRO TIP&lt;/strong&gt;: I had to reinstall the official &lt;strong&gt;BeagleBoard&lt;/strong&gt; drivers, which can
 be found &lt;a href=&quot;http://beagleboard.org/getting-started#step2&quot;&gt;here&lt;/a&gt;. I had problems as
-&lt;em&gt;Windows 8.1&lt;/em&gt; didn&amp;#39;t allow me to install &lt;em&gt;unsigned&lt;/em&gt; drivers; so, if you get to
+&lt;em&gt;Windows 8.1&lt;/em&gt; didn’t allow me to install &lt;em&gt;unsigned&lt;/em&gt; drivers; so, if you get to
 the last step of drivers installation and you get red crosses (&lt;em&gt;error in installation&lt;/em&gt;)
-and you don&amp;#39;t know why, try reinstalling after doing
+and you don’t know why, try reinstalling after doing
 &lt;a href=&quot;http://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/&quot;&gt;this&lt;/a&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Now we have to set up things for hostname resolution. Well&amp;#39;use &lt;em&gt;Samba&lt;/em&gt; for this.
-It can be used for many more things, but in this case we&amp;#39;ll use just its &lt;strong&gt;&lt;em&gt;NetBIOS&lt;/em&gt;&lt;/strong&gt; ability.
+  &lt;li&gt;Now we have to set up things for hostname resolution. Well’use &lt;em&gt;Samba&lt;/em&gt; for this.
+It can be used for many more things, but in this case we’ll use just its &lt;strong&gt;&lt;em&gt;NetBIOS&lt;/em&gt;&lt;/strong&gt; ability.
 So, get &lt;em&gt;Samba&lt;/em&gt; and enable the &lt;em&gt;NetBIOS&lt;/em&gt; daemon:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;! pacman -S samba
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;! pacman -S samba
 ! cp /etc/samba/smb.conf.default /etc/samba/smb.conf
-! systemctl &lt;span class=&quot;nb&quot;&gt;enable&lt;/span&gt; nmbd
+! systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;nmbd
 ! systemctl start nmbd&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
-&lt;li&gt;On the &lt;em&gt;host&lt;/em&gt;, enable &lt;em&gt;NetBIOS&lt;/em&gt; name resolution by adding &lt;em&gt;wins&lt;/em&gt; to the &lt;em&gt;/etc/nsswitch.conf&lt;/em&gt; file.
+  &lt;li&gt;On the &lt;em&gt;host&lt;/em&gt;, enable &lt;em&gt;NetBIOS&lt;/em&gt; name resolution by adding &lt;em&gt;wins&lt;/em&gt; to the &lt;em&gt;/etc/nsswitch.conf&lt;/em&gt; file.
 It will look like this:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;$ cat /etc/nsswitch.conf 
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;cat /etc/nsswitch.conf 
 ...
-hosts: files wins dns myhostname &lt;span class=&quot;c1&quot;&gt;# See? We added &amp;#39;wins&amp;#39; &lt;/span&gt;
+hosts: files wins dns myhostname &lt;span class=&quot;c&quot;&gt;# See? We added 'wins' &lt;/span&gt;
 ...&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2&gt;And now?&lt;/h2&gt;
-
+&lt;h2 id=&quot;and-now&quot;&gt;And now?&lt;/h2&gt;
 &lt;p&gt;Now, just connect with a&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;$ ssh alarm &lt;span class=&quot;c1&quot;&gt;# Assuming that you&amp;#39;ve not changed the BeagleBoneBlack hostname&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ssh alarm &lt;span class=&quot;c&quot;&gt;# Assuming that you've not changed the BeagleBoneBlack hostname&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;No more fuss for looking for IP, setting things or else.
 This tutorial is a bit long, but I hope it can be useful to someone. Cheers.&lt;/p&gt;
@@ -161,57 +161,53 @@ This tutorial is a bit long, but I hope it can be useful to someone. Cheers.&lt;
    <link href="http://localhost:4000/2015/04/28/android-no-thumbnails/"/>
    <updated>2015-04-28T00:00:00+08:00</updated>
    <id>http://localhost:4000/2015/04/28/android-no-thumbnails</id>
-   <content type="html">&lt;p&gt;I&amp;#39;m really having an hard time in this period (&lt;strong&gt;&lt;em&gt;exams, duh&lt;/em&gt;&lt;/strong&gt;) but considering
-the fact I&amp;#39;m having more views that I ever expected,
-I&amp;#39;m gonna drop something useful here.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I’m really having an hard time in this period (&lt;strong&gt;&lt;em&gt;exams, duh&lt;/em&gt;&lt;/strong&gt;) but considering
+the fact I’m having more views that I ever expected,
+I’m gonna drop something useful here.&lt;/p&gt;
 
-&lt;p&gt;Don&amp;#39;t worry, &lt;em&gt;long posts&lt;/em&gt; with &lt;strong&gt;&lt;em&gt;many informatics technical stuff&lt;/em&gt;&lt;/strong&gt; are
+&lt;p&gt;Don’t worry, &lt;em&gt;long posts&lt;/em&gt; with &lt;strong&gt;&lt;em&gt;many informatics technical stuff&lt;/em&gt;&lt;/strong&gt; are
 already in background.
-I&amp;#39;m thinking about a &lt;strong&gt;server-related tutorial series&lt;/strong&gt;, I suppose people will
+I’m thinking about a &lt;strong&gt;server-related tutorial series&lt;/strong&gt;, I suppose people will
 enjoy.&lt;/p&gt;
 
 &lt;p&gt;Anyways, back to the topic.&lt;/p&gt;
 
-&lt;h2&gt;What do you mean in the title?&lt;/h2&gt;
-
-&lt;p&gt;Let&amp;#39;s be honest, &lt;strong&gt;Android OS&lt;/strong&gt; can&amp;#39;t be perfect. We already know this.
-But there&amp;#39;s lot of customization avaible, which makes it my favourite mobile OS
-(&lt;em&gt;for now... But I think/hope this won&amp;#39;t change&lt;/em&gt;).
+&lt;h2 id=&quot;what-do-you-mean-in-the-title&quot;&gt;What do you mean in the title?&lt;/h2&gt;
+&lt;p&gt;Let’s be honest, &lt;strong&gt;Android OS&lt;/strong&gt; can’t be perfect. We already know this.
+But there’s lot of customization avaible, which makes it my favourite mobile OS
+(&lt;em&gt;for now… But I think/hope this won’t change&lt;/em&gt;).
 Anyways, I can detect with &lt;a href=&quot;https://play.google.com/store/apps/details?id=eu.thedarken.sdm&quot;&gt;SD Maid&lt;/a&gt;
-about &lt;strong&gt;&lt;em&gt;1.8 GB&lt;/em&gt;&lt;/strong&gt; of &lt;em&gt;Stock Gallery thumbnails&lt;/em&gt;. And that&amp;#39;s a big bunch of crap.
-(&lt;strong&gt;PRO TIP&lt;/strong&gt;: visit &lt;a href=&quot;http://darken.eu/&quot;&gt;darken&amp;#39;s website&lt;/a&gt; or take a look to his
+about &lt;strong&gt;&lt;em&gt;1.8 GB&lt;/em&gt;&lt;/strong&gt; of &lt;em&gt;Stock Gallery thumbnails&lt;/em&gt;. And that’s a big bunch of crap.
+(&lt;strong&gt;PRO TIP&lt;/strong&gt;: visit &lt;a href=&quot;http://darken.eu/&quot;&gt;darken’s website&lt;/a&gt; or take a look to his
 &lt;a href=&quot;https://plus.google.com/u/0/116634499773478773276/&quot;&gt;G+&lt;/a&gt;)&lt;/p&gt;
 
-&lt;h2&gt;Why this happens?&lt;/h2&gt;
-
+&lt;h2 id=&quot;why-this-happens&quot;&gt;Why this happens?&lt;/h2&gt;
 &lt;p&gt;Actually, Android just tries to speed-up the Gallery (in my case, &lt;strong&gt;Google+ Photos&lt;/strong&gt;
-app) by creating a local preview that can be loaded really fast by gallery apps...
+app) by creating a local preview that can be loaded really fast by gallery apps…
 However, this creates the &lt;em&gt;junk&lt;/em&gt; I told before.&lt;/p&gt;
 
-&lt;h2&gt;Any fixes?&lt;/h2&gt;
-
-&lt;p&gt;Yeah, the title would be different if it wasn&amp;#39;t like this.
+&lt;h2 id=&quot;any-fixes&quot;&gt;Any fixes?&lt;/h2&gt;
+&lt;p&gt;Yeah, the title would be different if it wasn’t like this.
 However, this requires a mobile with a &lt;strong&gt;&lt;em&gt;custom recovery&lt;/em&gt;&lt;/strong&gt;
 (&lt;em&gt;like &lt;a href=&quot;http://clockworkmod.com/rommanager&quot;&gt;ClockWorkMod&lt;/a&gt; or &lt;a href=&quot;http://teamw.in/Devices/&quot;&gt;TWRP&lt;/a&gt;&lt;/em&gt;)
 and some &lt;em&gt;Android/Linux OS&lt;/em&gt; knowledge.
 (At least, try to understand what follows next.)&lt;/p&gt;
 
-&lt;h2&gt;Let&amp;#39;s go!&lt;/h2&gt;
-
+&lt;h2 id=&quot;lets-go&quot;&gt;Let’s go!&lt;/h2&gt;
 &lt;p&gt;The idea is to make impossible to create new thumbnails; so, why not deleting the
 thumbnails and make the folder to be impossible to access?
 Exactly, this will make the trick.
-Now, reboot your phone in &lt;em&gt;recovery mode&lt;/em&gt; and open your shell (in &lt;em&gt;TWRP&lt;/em&gt; there&amp;#39;s
+Now, reboot your phone in &lt;em&gt;recovery mode&lt;/em&gt; and open your shell (in &lt;em&gt;TWRP&lt;/em&gt; there’s
 one that can be runned in recovery, else connect your phone to your PC and use
-an &lt;em&gt;adb shell&lt;/em&gt;... check that you&amp;#39;re using &lt;strong&gt;root&lt;/strong&gt; with &lt;em&gt;whoami&lt;/em&gt;)&lt;/p&gt;
+an &lt;em&gt;adb shell&lt;/em&gt;… check that you’re using &lt;strong&gt;root&lt;/strong&gt; with &lt;em&gt;whoami&lt;/em&gt;)&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /sdcard &lt;span class=&quot;c1&quot;&gt;# Should exist as fallback... anyways, getting in your main memory folder&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; DCIM &lt;span class=&quot;c1&quot;&gt;# Entering photos folder, where thumbnails are&lt;/span&gt;
-rm -f .thumbnails/* &lt;span class=&quot;c1&quot;&gt;# Removing all thumbnails&lt;/span&gt;
-chmod &lt;span class=&quot;m&quot;&gt;000&lt;/span&gt; .thumbnails &lt;span class=&quot;c1&quot;&gt;# Making the thumbnail folder not accessible anymore&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /sdcard &lt;span class=&quot;c&quot;&gt;# Should exist as fallback... anyways, getting in your main memory folder&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;DCIM &lt;span class=&quot;c&quot;&gt;# Entering photos folder, where thumbnails are&lt;/span&gt;
+rm -f .thumbnails/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Removing all thumbnails&lt;/span&gt;
+chmod 000 .thumbnails &lt;span class=&quot;c&quot;&gt;# Making the thumbnail folder not accessible anymore&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Done! Now the thumbnails in the Gallery app will be generated on the fly... and you will have some free memory now.
-That&amp;#39;s all for now, folks!
+&lt;p&gt;Done! Now the thumbnails in the Gallery app will be generated on the fly… and you will have some free memory now.
+That’s all for now, folks!
 Wait for the &lt;em&gt;tutorial series&lt;/em&gt;.&lt;/p&gt;
 </content>
  </entry>
@@ -221,127 +217,123 @@ Wait for the &lt;em&gt;tutorial series&lt;/em&gt;.&lt;/p&gt;
    <link href="http://localhost:4000/2015/04/13/youtube-html5-on-firefox/"/>
    <updated>2015-04-13T00:00:00+08:00</updated>
    <id>http://localhost:4000/2015/04/13/youtube-html5-on-firefox</id>
-   <content type="html">&lt;p&gt;&lt;em&gt;Everybody loves YouTube, doesn&amp;#39;t it&lt;/em&gt;? I love this service too.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;em&gt;Everybody loves YouTube, doesn’t it&lt;/em&gt;? I love this service too.&lt;/p&gt;
 
-&lt;p&gt;I see lots of videos from it and I&amp;#39;m really satisfied with this service.&lt;/p&gt;
+&lt;p&gt;I see lots of videos from it and I’m really satisfied with this service.&lt;/p&gt;
 
-&lt;p&gt;So, free candies and hugs for everybody, yuppie...
+&lt;p&gt;So, free candies and hugs for everybody, yuppie…
 (Notice: you can skip to the &lt;strong&gt;TL;DR&lt;/strong&gt; part at the end of the page.
 &lt;strong&gt;PRO TIP&lt;/strong&gt;: you can search for it in your browser.)&lt;/p&gt;
 
-&lt;h2&gt;But...&lt;/h2&gt;
+&lt;h2 id=&quot;but&quot;&gt;But…&lt;/h2&gt;
 
-&lt;p&gt;Yeah, bad news here. It uses &lt;em&gt;Adobe&amp;#39;s&lt;/em&gt; &lt;strong&gt;&lt;em&gt;Flash Player&lt;/em&gt;&lt;/strong&gt;.
+&lt;p&gt;Yeah, bad news here. It uses &lt;em&gt;Adobe’s&lt;/em&gt; &lt;strong&gt;&lt;em&gt;Flash Player&lt;/em&gt;&lt;/strong&gt;.
 The plugin that has just been used for &lt;em&gt;flash games&lt;/em&gt; and Youtube.&lt;/p&gt;
 
 &lt;p&gt;About the first of them, I can still remember some epic ones, as
 &lt;a href=&quot;http://www.kongregate.com/games/JuicyBeast/burrito-bison-revenge&quot;&gt;Burrito Bison Revenge&lt;/a&gt;
 and &lt;a href=&quot;http://games.adultswim.com/robot-unicorn-attack-heavy-metal-twitchy-online-game.html&quot;&gt;Robot Unicorn Attack: Heavy Metal&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;For Youtube... well, it&amp;#39;s for Youtube.&lt;/p&gt;
+&lt;p&gt;For Youtube… well, it’s for Youtube.&lt;/p&gt;
 
-&lt;h2&gt;So what...?&lt;/h2&gt;
+&lt;h2 id=&quot;so-what&quot;&gt;So what…?&lt;/h2&gt;
 
 &lt;p&gt;Actually, as you should know, Linux has &lt;em&gt;outdated Flash plugin&lt;/em&gt;
-(&lt;strong&gt;11.2&lt;/strong&gt;, when the upstream one is &lt;strong&gt;11.7&lt;/strong&gt;) that is stable but... well,
-&lt;em&gt;it&amp;#39;s not updated&lt;/em&gt;, fine?&lt;/p&gt;
+(&lt;strong&gt;11.2&lt;/strong&gt;, when the upstream one is &lt;strong&gt;11.7&lt;/strong&gt;) that is stable but… well,
+&lt;em&gt;it’s not updated&lt;/em&gt;, fine?&lt;/p&gt;
 
 &lt;p&gt;Apart from this, on my main OS (&lt;a href=&quot;http://antergos.com&quot;&gt;Antergos&lt;/a&gt;, an
 &lt;a href=&quot;http://archlinux.org&quot;&gt;ArchLinux&lt;/a&gt; with lots of goodies in it and a fully working
-desktop manager) I&amp;#39;ve no video thumbnail when shifting the player cursor. And no
+desktop manager) I’ve no video thumbnail when shifting the player cursor. And no
  default &lt;em&gt;hardware accelleration&lt;/em&gt;. Yup. (But read below for some juice.)
-Also, even on Windows I&amp;#39;ve some problems with hardware accelleration (With my
-Intel Graphics, I&amp;#39;ve some &lt;em&gt;hardware decoding&lt;/em&gt; issues on some formats, as &lt;strong&gt;480p&lt;/strong&gt;).&lt;/p&gt;
+Also, even on Windows I’ve some problems with hardware accelleration (With my
+Intel Graphics, I’ve some &lt;em&gt;hardware decoding&lt;/em&gt; issues on some formats, as &lt;strong&gt;480p&lt;/strong&gt;).&lt;/p&gt;
 
-&lt;h3&gt;SPOILER: Nerd stuff ahead... more then usual, yes. If you&amp;#39;re not interested, skip to next paragraph.&lt;/h3&gt;
-
-&lt;p&gt;Thanks to &lt;a href=&quot;https://github.com/i-rinat/&quot;&gt;Rinat Ibragimov&lt;/a&gt;, it&amp;#39;s possible to use
+&lt;h3 id=&quot;spoiler-nerd-stuff-ahead-more-then-usual-yes-if-youre-not-interested-skip-to-next-paragraph&quot;&gt;SPOILER: Nerd stuff ahead… more then usual, yes. If you’re not interested, skip to next paragraph.&lt;/h3&gt;
+&lt;p&gt;Thanks to &lt;a href=&quot;https://github.com/i-rinat/&quot;&gt;Rinat Ibragimov&lt;/a&gt;, it’s possible to use
 an updated version of Flash even on Linux; thanks to his hard work, now we have
 avaible a &lt;em&gt;PPAPI-to-NPAPI conversion plugin&lt;/em&gt; that allows to use the
 &lt;strong&gt;PPAPI Chrome&lt;/strong&gt; plugin on Firefox.
-If you&amp;#39;re interested, take a look &lt;a href=&quot;https://github.com/i-rinat/freshplayerplugin&quot;&gt;here&lt;/a&gt;,
+If you’re interested, take a look &lt;a href=&quot;https://github.com/i-rinat/freshplayerplugin&quot;&gt;here&lt;/a&gt;,
 while you can track hardware decoding specific stuff and progress
 &lt;a href=&quot;https://github.com/i-rinat/freshplayerplugin/issues/24&quot;&gt;here&lt;/a&gt;.
 This awesome developer also developed the awesome
 &lt;a href=&quot;https://github.com/i-rinat/libvdpau-va-gl&quot;&gt;libvdpau-va-gl&lt;/a&gt;, that allows to use
 &lt;strong&gt;VA-API&lt;/strong&gt; as a &lt;em&gt;VDPAU backend&lt;/em&gt; for hardware accelleration.
-(As Flash &lt;em&gt;just&lt;/em&gt; supports &lt;strong&gt;VDPAU&lt;/strong&gt; for hardware accelleration... So many
+(As Flash &lt;em&gt;just&lt;/em&gt; supports &lt;strong&gt;VDPAU&lt;/strong&gt; for hardware accelleration… So many
 facepalms for me.).
 &lt;em&gt;Translation for human mortals&lt;/em&gt;:
 &lt;strong&gt;&lt;em&gt;you use VA-API for VDPAU accelleration = hardware accelleration for Flash on Intel graphics&lt;/em&gt;&lt;/strong&gt;.
-&lt;a href=&quot;http://www.webupd8.org/2013/09/adobe-flash-player-hardware.html&quot;&gt;Here&lt;/a&gt; you&amp;#39;ve
+&lt;a href=&quot;http://www.webupd8.org/2013/09/adobe-flash-player-hardware.html&quot;&gt;Here&lt;/a&gt; you’ve
 installation tutorial for &lt;em&gt;Ubuntu&lt;/em&gt;.
 Instead, for installing &lt;strong&gt;libvdpau-va-gl&lt;/strong&gt; on &lt;em&gt;ArchLinux&lt;/em&gt; you could do something
 in a shell like this:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Installing required packages&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Installing required packages&lt;/span&gt;
 sudo pacman -S libvdpau-va-gl libva-intel-driver flashplugin
-&lt;span class=&quot;c1&quot;&gt;# Enabling HardWare Accelleration for Flash plugin&lt;/span&gt;
-sudo sed -i &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/#Enable/Enable/&amp;#39;&lt;/span&gt; /etc/adobe/mms.cfg
-&lt;span class=&quot;c1&quot;&gt;# Making avaible the driver through environment variables&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;export VDPAU_DRIVER=va_gl&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; .bashrc
-&lt;span class=&quot;c1&quot;&gt;# Activate it for the actual session&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;VDPAU_DRIVER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;va_gl&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;c&quot;&gt;# Enabling HardWare Accelleration for Flash plugin&lt;/span&gt;
+sudo sed -i &lt;span class=&quot;s1&quot;&gt;'s/#Enable/Enable/'&lt;/span&gt; /etc/adobe/mms.cfg
+&lt;span class=&quot;c&quot;&gt;# Making avaible the driver through environment variables&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;export VDPAU_DRIVER=va_gl&quot;&lt;/span&gt; &amp;gt;&amp;gt; .bashrc
+&lt;span class=&quot;c&quot;&gt;# Activate it for the actual session&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;VDPAU_DRIVER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;va_gl&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;strong&gt;Notice&lt;/strong&gt;: in this way it&amp;#39;ll work just for the user which exports the variable;
+&lt;p&gt;&lt;strong&gt;Notice&lt;/strong&gt;: in this way it’ll work just for the user which exports the variable;
 to make it default for the whole system, you should create a
 &lt;strong&gt;&lt;em&gt;/etc/profile.d/vdpau_vaapi.sh&lt;/em&gt;&lt;/strong&gt;
 script with this commands:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;#!/bin/sh&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;VDPAU_DRIVER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;va_gl&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;VDPAU_DRIVER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;va_gl&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This will do the trick.&lt;/p&gt;
 
-&lt;h2&gt;The solution is... HTML5!&lt;/h2&gt;
-
+&lt;h2 id=&quot;the-solution-is-html5&quot;&gt;The solution is… HTML5!&lt;/h2&gt;
 &lt;p&gt;As you should know, YouTube has made avaible an &lt;strong&gt;HTML5 player&lt;/strong&gt; avaible
 &lt;a href=&quot;https://www.youtube.com/html5&quot;&gt;here&lt;/a&gt;.
 This make the YouTube experience free from the problems given by Flash Player.
 Also, it has &lt;em&gt;no problem&lt;/em&gt; in playing &lt;em&gt;all the videos&lt;/em&gt; avaible with Flash, it has
 &lt;strong&gt;60 FPS videos support&lt;/strong&gt; (&lt;em&gt;and Flash does not&lt;/em&gt;) and uses
-&lt;strong&gt;hardware accelleration&lt;/strong&gt; (&lt;em&gt;it should...&lt;/em&gt; I can&amp;#39;t be sure about it, as no
+&lt;strong&gt;hardware accelleration&lt;/strong&gt; (&lt;em&gt;it should…&lt;/em&gt; I can’t be sure about it, as no
 related source code is avaible, but it &lt;em&gt;should&lt;/em&gt; use &lt;em&gt;hardware accellerated&lt;/em&gt;
 &lt;strong&gt;&lt;em&gt;HTML5 canvas&lt;/em&gt;&lt;/strong&gt;).&lt;/p&gt;
 
-&lt;h2&gt;But... #2&lt;/h2&gt;
-
-&lt;p&gt;Actually, it fully works just on &lt;em&gt;Chromium/Google Chrome&lt;/em&gt;...
-&lt;img src=&quot;/public/2015-04-13/chromium.png&quot; alt=&quot;Fully works on ArchLinux Chromium...&quot;&gt;
-While on &lt;em&gt;Firefox&lt;/em&gt;...
-&lt;img src=&quot;/public/2015-04-13/firefox-archlinux.png&quot; alt=&quot;Doh #1.&quot;&gt;
+&lt;h2 id=&quot;but-2&quot;&gt;But… #2&lt;/h2&gt;
+&lt;p&gt;Actually, it fully works just on &lt;em&gt;Chromium/Google Chrome&lt;/em&gt;…
+&lt;img src=&quot;/public/2015-04-13/chromium.png&quot; alt=&quot;Fully works on ArchLinux Chromium...&quot; /&gt;
+While on &lt;em&gt;Firefox&lt;/em&gt;…
+&lt;img src=&quot;/public/2015-04-13/firefox-archlinux.png&quot; alt=&quot;Doh #1.&quot; /&gt;
 And on &lt;em&gt;Windows Firefox&lt;/em&gt;
-&lt;img src=&quot;/public/2015-04-13/firefox-windows.png&quot; alt=&quot;Doh #2.&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;/public/2015-04-13/firefox-windows.png&quot; alt=&quot;Doh #2.&quot; /&gt;&lt;/p&gt;
 
-&lt;h2&gt;The final solution (TL;DR)&lt;/h2&gt;
+&lt;h2 id=&quot;the-final-solution-tldr&quot;&gt;The final solution (TL;DR)&lt;/h2&gt;
 
 &lt;p&gt;In order to have &lt;strong&gt;&lt;em&gt;a fully working HTML5 YouTube player in Firefox&lt;/em&gt;&lt;/strong&gt;, you just
 have to open the internal configuration
-&lt;a href=&quot;about:config&quot;&gt;here (Remember, just for  Firefox)&lt;/a&gt;, press the big &amp;quot;Yeah, I&amp;#39;ll be
-a fine boy&amp;quot; button (&lt;em&gt;can&amp;#39;t remember the proper English text, sorry&lt;/em&gt;) set the
+&lt;a href=&quot;about:config&quot;&gt;here (Remember, just for  Firefox)&lt;/a&gt;, press the big “Yeah, I’ll be
+a fine boy” button (&lt;em&gt;can’t remember the proper English text, sorry&lt;/em&gt;) set the
 flags shown below as suggested (&lt;strong&gt;PRO TIP&lt;/strong&gt;: you can use the built-in search bar):&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;media.mediasource.enabled&lt;/span&gt;&lt;span class=&quot;p p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;media.mediasource.mp4.enabled&lt;/span&gt;&lt;span class=&quot;p p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;media.mediasource.webm.enabled&lt;/span&gt;&lt;span class=&quot;p p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;media.mediasource.youtubeonly&lt;/span&gt;&lt;span class=&quot;p p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;s&quot;&gt;media.mediasource.enabled&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;media.mediasource.mp4.enabled&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;media.mediasource.webm.enabled&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;media.mediasource.youtubeonly&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;true&lt;/span&gt;
 
-&lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;media.fragmented-mp4.enabled&lt;/span&gt;&lt;span class=&quot;p p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;media.fragmented-mp4.exposed&lt;/span&gt;&lt;span class=&quot;p p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;media.fragmented-mp4.ffmpeg.enabled&lt;/span&gt;&lt;span class=&quot;p p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;media.fragmented-mp4.gmp.enabled&lt;/span&gt;&lt;span class=&quot;p p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;media.fragmented-mp4.use-blank-decoder&lt;/span&gt;&lt;span class=&quot;p p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l l-Scalar l-Scalar-Plain&quot;&gt;false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;s&quot;&gt;media.fragmented-mp4.enabled&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;media.fragmented-mp4.exposed&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;media.fragmented-mp4.ffmpeg.enabled&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;media.fragmented-mp4.gmp.enabled&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;media.fragmented-mp4.use-blank-decoder&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;And finally...
+&lt;p&gt;And finally…
 &lt;em&gt;Firefox on ArchLinux&lt;/em&gt;
-&lt;img src=&quot;/public/2015-04-13/firefox-archlinux-working.png&quot; alt=&quot;Yes #1.&quot;&gt;
+&lt;img src=&quot;/public/2015-04-13/firefox-archlinux-working.png&quot; alt=&quot;Yes #1.&quot; /&gt;
 And on &lt;em&gt;Firefox on Windows&lt;/em&gt;.
-&lt;img src=&quot;/public/2015-04-13/firefox-windows-working.png&quot; alt=&quot;Yes #2.&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;/public/2015-04-13/firefox-windows-working.png&quot; alt=&quot;Yes #2.&quot; /&gt;&lt;/p&gt;
 
-&lt;h2&gt;The end&lt;/h2&gt;
-
-&lt;p&gt;Well, that&amp;#39;s all folks for now.
-If it&amp;#39;s interesting, show some love and press the share button I&amp;#39;ve put below
+&lt;h2 id=&quot;the-end&quot;&gt;The end&lt;/h2&gt;
+&lt;p&gt;Well, that’s all folks for now.
+If it’s interesting, show some love and press the share button I’ve put below
 and thank you for reading up to this point.
 See you guys!&lt;/p&gt;
 </content>
@@ -358,16 +350,16 @@ I did what no one ever succeded in.
 Yeah.
 I setted up a blog.
 Yeah.
-... Uh.
+… Uh.
 Lots of people already did with Wordpress, you say?
 Doh.&lt;/p&gt;
 
-&lt;p&gt;Yeah, I&amp;#39;ve got &lt;em&gt;lots of&lt;/em&gt; &lt;strong&gt;&lt;em&gt;sarcasm&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Yeah, I’ve got &lt;em&gt;lots of&lt;/em&gt; &lt;strong&gt;&lt;em&gt;sarcasm&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;h3&gt;Who the hell are you?&lt;/h3&gt;
+&lt;h3 id=&quot;who-the-hell-are-you&quot;&gt;Who the hell are you?&lt;/h3&gt;
 
-&lt;p&gt;The one who&amp;#39;s writing this blog. &lt;em&gt;Even if you now can&amp;#39;t sense it.&lt;/em&gt;
-Anyways, I&amp;#39;m an IT student who loves new things. In particular, I &lt;strong&gt;love&lt;/strong&gt;
+&lt;p&gt;The one who’s writing this blog. &lt;em&gt;Even if you now can’t sense it.&lt;/em&gt;
+Anyways, I’m an IT student who loves new things. In particular, I &lt;strong&gt;love&lt;/strong&gt;
 &lt;strong&gt;&lt;em&gt;simple stuff that works fine&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;As this website, &lt;strong&gt;&lt;em&gt;for example&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
@@ -380,17 +372,17 @@ awesome &lt;a href=&quot;http://jeyllrb.com&quot;&gt;Jekyll&lt;/a&gt; and the ev
 
 &lt;p&gt;Interested? Take a look &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3&gt;Seriously, who are you?&lt;/h3&gt;
+&lt;h3 id=&quot;seriously-who-are-you&quot;&gt;Seriously, who are you?&lt;/h3&gt;
 
-&lt;p&gt;Fine, even if &lt;strong&gt;I&amp;#39;m asking to myself&lt;/strong&gt; (while writing this post, &lt;em&gt;you should know&lt;/em&gt;).
-I&amp;#39;m Giovanni Santini, as for now an &lt;em&gt;Italian&lt;/em&gt; &lt;strong&gt;Informatics Science&lt;/strong&gt;
-universitary student; I&amp;#39;ve lots of Internet stuff (&lt;em&gt;Facebook&lt;/em&gt;, &lt;em&gt;Google+&lt;/em&gt;,
+&lt;p&gt;Fine, even if &lt;strong&gt;I’m asking to myself&lt;/strong&gt; (while writing this post, &lt;em&gt;you should know&lt;/em&gt;).
+I’m Giovanni Santini, as for now an &lt;em&gt;Italian&lt;/em&gt; &lt;strong&gt;Informatics Science&lt;/strong&gt;
+universitary student; I’ve lots of Internet stuff (&lt;em&gt;Facebook&lt;/em&gt;, &lt;em&gt;Google+&lt;/em&gt;,
 &lt;em&gt;YouTube&lt;/em&gt; &lt;strong&gt;et cetera&lt;/strong&gt;) and probably you already know me for some of them
 (&lt;em&gt;if you do&lt;/em&gt;).&lt;/p&gt;
 
-&lt;p&gt;Here I&amp;#39;ll post some thoughts about my IT/nerding adventures (&lt;em&gt;yuppie&lt;/em&gt;) or about
+&lt;p&gt;Here I’ll post some thoughts about my IT/nerding adventures (&lt;em&gt;yuppie&lt;/em&gt;) or about
 my &lt;em&gt;philosophy&lt;/em&gt; (I love &lt;strong&gt;logics&lt;/strong&gt; and similar stuff).
-I&amp;#39;ll fix in some time the &lt;em&gt;About&lt;/em&gt; page, so you&amp;#39;ll be able to contact me.&lt;/p&gt;
+I’ll fix in some time the &lt;em&gt;About&lt;/em&gt; page, so you’ll be able to contact me.&lt;/p&gt;
 
 &lt;p&gt;And, as an important man said,
 &lt;strong&gt;KTHXBYE&lt;/strong&gt;&lt;/p&gt;

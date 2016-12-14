@@ -14,7 +14,7 @@
   
   <title>
     
-      Android: Preventing Gallery thumbnails creation &middot; Hic sunt leones
+      Android: Preventing Gallery thumbnails creation &middot; 周宇盛的博客
     
   </title>
 
@@ -91,8 +91,8 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="/" title="Home">Hic sunt leones</a>
-            <small>AKA Giovanni Santini's personal blog. For real, yeah.</small>
+            <a href="/" title="Home">周宇盛的博客</a>
+            <small>网页制作 学习笔记 读书笔记</small>
           </h3>
           
 
@@ -103,57 +103,53 @@
         <div class="post">
   <h1 class="post-title">Android: Preventing Gallery thumbnails creation</h1>
   <span class="post-date">28 Apr 2015</span>
-  <p>I&#39;m really having an hard time in this period (<strong><em>exams, duh</em></strong>) but considering
-the fact I&#39;m having more views that I ever expected,
-I&#39;m gonna drop something useful here.</p>
+  <p>I’m really having an hard time in this period (<strong><em>exams, duh</em></strong>) but considering
+the fact I’m having more views that I ever expected,
+I’m gonna drop something useful here.</p>
 
-<p>Don&#39;t worry, <em>long posts</em> with <strong><em>many informatics technical stuff</em></strong> are
+<p>Don’t worry, <em>long posts</em> with <strong><em>many informatics technical stuff</em></strong> are
 already in background.
-I&#39;m thinking about a <strong>server-related tutorial series</strong>, I suppose people will
+I’m thinking about a <strong>server-related tutorial series</strong>, I suppose people will
 enjoy.</p>
 
 <p>Anyways, back to the topic.</p>
 
-<h2>What do you mean in the title?</h2>
-
-<p>Let&#39;s be honest, <strong>Android OS</strong> can&#39;t be perfect. We already know this.
-But there&#39;s lot of customization avaible, which makes it my favourite mobile OS
-(<em>for now... But I think/hope this won&#39;t change</em>).
+<h2 id="what-do-you-mean-in-the-title">What do you mean in the title?</h2>
+<p>Let’s be honest, <strong>Android OS</strong> can’t be perfect. We already know this.
+But there’s lot of customization avaible, which makes it my favourite mobile OS
+(<em>for now… But I think/hope this won’t change</em>).
 Anyways, I can detect with <a href="https://play.google.com/store/apps/details?id=eu.thedarken.sdm">SD Maid</a>
-about <strong><em>1.8 GB</em></strong> of <em>Stock Gallery thumbnails</em>. And that&#39;s a big bunch of crap.
-(<strong>PRO TIP</strong>: visit <a href="http://darken.eu/">darken&#39;s website</a> or take a look to his
+about <strong><em>1.8 GB</em></strong> of <em>Stock Gallery thumbnails</em>. And that’s a big bunch of crap.
+(<strong>PRO TIP</strong>: visit <a href="http://darken.eu/">darken’s website</a> or take a look to his
 <a href="https://plus.google.com/u/0/116634499773478773276/">G+</a>)</p>
 
-<h2>Why this happens?</h2>
-
+<h2 id="why-this-happens">Why this happens?</h2>
 <p>Actually, Android just tries to speed-up the Gallery (in my case, <strong>Google+ Photos</strong>
-app) by creating a local preview that can be loaded really fast by gallery apps...
+app) by creating a local preview that can be loaded really fast by gallery apps…
 However, this creates the <em>junk</em> I told before.</p>
 
-<h2>Any fixes?</h2>
-
-<p>Yeah, the title would be different if it wasn&#39;t like this.
+<h2 id="any-fixes">Any fixes?</h2>
+<p>Yeah, the title would be different if it wasn’t like this.
 However, this requires a mobile with a <strong><em>custom recovery</em></strong>
 (<em>like <a href="http://clockworkmod.com/rommanager">ClockWorkMod</a> or <a href="http://teamw.in/Devices/">TWRP</a></em>)
 and some <em>Android/Linux OS</em> knowledge.
 (At least, try to understand what follows next.)</p>
 
-<h2>Let&#39;s go!</h2>
-
+<h2 id="lets-go">Let’s go!</h2>
 <p>The idea is to make impossible to create new thumbnails; so, why not deleting the
 thumbnails and make the folder to be impossible to access?
 Exactly, this will make the trick.
-Now, reboot your phone in <em>recovery mode</em> and open your shell (in <em>TWRP</em> there&#39;s
+Now, reboot your phone in <em>recovery mode</em> and open your shell (in <em>TWRP</em> there’s
 one that can be runned in recovery, else connect your phone to your PC and use
-an <em>adb shell</em>... check that you&#39;re using <strong>root</strong> with <em>whoami</em>)</p>
+an <em>adb shell</em>… check that you’re using <strong>root</strong> with <em>whoami</em>)</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nb">cd</span> /sdcard <span class="c1"># Should exist as fallback... anyways, getting in your main memory folder</span>
-<span class="nb">cd</span> DCIM <span class="c1"># Entering photos folder, where thumbnails are</span>
-rm -f .thumbnails/* <span class="c1"># Removing all thumbnails</span>
-chmod <span class="m">000</span> .thumbnails <span class="c1"># Making the thumbnail folder not accessible anymore</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /sdcard <span class="c"># Should exist as fallback... anyways, getting in your main memory folder</span>
+<span class="nb">cd </span>DCIM <span class="c"># Entering photos folder, where thumbnails are</span>
+rm -f .thumbnails/<span class="k">*</span> <span class="c"># Removing all thumbnails</span>
+chmod 000 .thumbnails <span class="c"># Making the thumbnail folder not accessible anymore</span></code></pre></figure>
 
-<p>Done! Now the thumbnails in the Gallery app will be generated on the fly... and you will have some free memory now.
-That&#39;s all for now, folks!
+<p>Done! Now the thumbnails in the Gallery app will be generated on the fly… and you will have some free memory now.
+That’s all for now, folks!
 Wait for the <em>tutorial series</em>.</p>
 
 </div>
@@ -253,21 +249,6 @@ Wait for the <em>tutorial series</em>.</p>
       })(document);
     </script>
     
-	<!-- Google Analytics -->
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-61816764-1', 'auto');
-		ga('send', 'pageview', {
-		  'page': '/2015/04/28/android-no-thumbnails/',
-		  'title': 'Android: Preventing Gallery thumbnails creation'
-		});
-	</script>
-	<!-- End Google Analytics -->
-
 
   </body>
 </html>

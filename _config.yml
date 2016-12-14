@@ -10,16 +10,16 @@ permalink:           pretty
 #relative_permalinks: true
 
 # Setup
-title:               Hic sunt leones
-tagline:             "AKA Giovanni Santini's personal blog. For real, yeah."
+title:               周宇盛的博客
+tagline:             "网页制作 学习笔记 读书笔记"
 description:         'A blog made from an IT lover about IT and other stuff (insert madness here). Based on the awesome <a href="https://github.com/poole/lanyon" target="_blank">Lanyon</a> theme, made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:                 http://giovannisantini.tk
+url:                 http://www.zhouyusheng.com
 baseurl:             /
 paginate:            5
 
 # About/contact
 author:
-  name:              Giovanni Santini
+  name:              Jason Zhou
   url:               https://www.twitter.com/jasonzhouu
   email:             jasonzhouu@163.com
 
@@ -41,12 +41,12 @@ exclude:
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email:
-  facebook:
+  email: jasonzhouu@163.com
+  facebook: jasonzhouu
   flickr:
   github: jasonzhouu
-  instagram:
-  linkedin:
+  instagram: jasonzhou
+  linkedin: jasonzhouu
   pinterest:
   rss: # just type anything here for a working RSS icon, make sure you set the "url" above!
   twitter: jasonzhouu
@@ -58,7 +58,7 @@ footer-links:
 disqus: jasonzhouu
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics: UA-61816764-1
+google_analytics: UA-88929877-1
 
 # Personal work: load share buttons if setted to 'true'
 sharing:
@@ -69,5 +69,5 @@ sharing:
 # Google Translator support
 translate:
   enabled: false
-  language: en
+  language: zh
   meta-config: b63bed9405924efe-1d1f2e87fc0bdbad-g105a614c17a1f5ce-12
