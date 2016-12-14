@@ -1,6 +1,6 @@
 # 周宇盛的博客
 ## 技术
-基于 @mdo 的[Lanyon主题](https://github.com/poole/lanyon)，使用 @Jekyll [静态页面生成器](https://github.com/jekyll/jekyll)制作。
+基于 @mdo 设计的[Lanyon主题](https://github.com/poole/lanyon)，使用 @Jekyll [静态页面生成器](https://github.com/jekyll/jekyll)制作。
 ## 主要内容：
 
 * 学习网页制作过程中的收获
