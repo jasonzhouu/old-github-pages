@@ -6,6 +6,7 @@ title: 自我介绍
 浙江大学能源工程学院14级研究生，擅长魔术、网页前端制作，空闲时间喜欢看书，最近对宋明理学很感兴趣，情商低到爆表的理性派，几乎不锻炼..
 
 ##2016年网页制作学习路径
+
 时间 | 事件
 ---- | ----
 5.23 | 开始学习网站设计，	看的第一本书是*Don't let me think*
@@ -24,9 +25,9 @@ title: 自我介绍
 12.8 | 开始学习通过虚拟机在本地搭建环境，使用工具`Vagrant`、`VirtualBox`
 12.11 | 开始学习`Docker`在本地搭建环境，并开始使用`Docker Hub`使用开源的镜像
 
-你可以在这里找到我 [Twitter](https://twitter.com/jasonzhouu),
+你可以在这里找到我 [知乎](https://www.zhihu.com/people/jasonzhouu/activities),
+微信号：`jasonzhouu`,
+[Twitter](https://twitter.com/jasonzhouu),
 [Facebook](https://www.facebook.com/jasonzhouu),
 [GitHub](https://github.com/jasonzhouu),
-[知乎](https://www.zhihu.com/people/jasonzhouu/activities)
-or
-e-mail: `jasonzhouu@163.com`
+或者邮箱：`jasonzhouu@163.com`
