@@ -5,8 +5,8 @@ title: "网页制作学习计划"
 
 ## 学习计划
 
-1. 利用`HTML`、`CSS`、`Bootstrap`、`FontAwesome`、`Javascript`、`jQuery`实现简单的静态页面
-2. 利用`Animate.js`、`ScrollReveal.js`、`jQuery_Lazyload`、`Headroom`、`Hover`、`lightgallery`、`flv.js`、`granim.js`等库实现更加有意思的静态页面
+1. 利用`HTML、CSS、Bootstrap、FontAwesome、Javascript、jQuery`实现简单的静态页面
+2. 利用`Animate.js、ScrollReveal.js、jQuery_Lazyload、Headroom、Hover、lightgallery、flv.js、granim.js`等库实现更加有意思的静态页面
 3. 利用`Ajax`实现异步请求`JSON`，使用`PHP`作为后端语言，`Laravel`作为后端框架，尝试通过`Fetch API`使用`Promise`风格发起异步请求，尝试`Typescript`，然后编译成`ES6`
 4. 使用`React`框架，搭配模块管理工具`Webpack`、编译工具`Babel`、任务管理工具`Gulp`实现工程化，使代码更容易维护，方便拓展功能
 5. 使用`Swiper`等针对移动端的框架
