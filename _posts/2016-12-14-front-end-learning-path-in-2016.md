@@ -42,3 +42,10 @@ title: "2016年网页制作学习路径"
 - Javascript设计模式
 - Javascript忍者秘籍
 - 你不知道的Javascript
+- 深入浅出Node.js
+- Javascript语言精粹
+- jQuery基础教程
+- 锋利的jQuery
+- Javascript DOM编程艺术
+- RESTful Web APIs
+- JavaScript异步编程
