@@ -49,3 +49,4 @@ title: "2016年网页制作学习路径"
 - Javascript DOM编程艺术
 - RESTful Web APIs
 - JavaScript异步编程
+- 高性能Javascript
