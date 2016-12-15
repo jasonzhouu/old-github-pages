@@ -33,7 +33,7 @@ title: "2016年网页制作学习路径"
 
 ### 接下来
 我绝不停止脚步，第一件事情就是深化对`Javascript`的理解，开始阅读：
-  * Javascript权威指南
-  * Javascript设计模式
-  * Javascript忍者秘籍
-  * 你不知道的Javascript
+* Javascript权威指南
+* Javascript设计模式
+* Javascript忍者秘籍
+* 你不知道的Javascript
