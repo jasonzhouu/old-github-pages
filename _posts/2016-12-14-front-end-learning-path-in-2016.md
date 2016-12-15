@@ -32,4 +32,8 @@ title: "2016年网页制作学习路径"
 时间的力量是强大的，只有持之以恒才能获得成功，现在所遇到的困难只要坚持，最终必然能得到解决，毕竟会这个的人实在太多了，并不是什么深奥的内容。
 
 ### 接下来
-我绝不停止脚步，第一件事情就是深化对`Javascript`的理解，开始阅读`Javascript权威指南, Javascript设计模式, Javascript忍者秘籍, 你不知道的Javascript`
+我绝不停止脚步，第一件事情就是深化对`Javascript`的理解，开始阅读：
+  * Javascript权威指南
+  * Javascript设计模式
+  * Javascript忍者秘籍
+  * 你不知道的Javascript
