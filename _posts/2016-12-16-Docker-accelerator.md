@@ -3,8 +3,6 @@ layout: post
 title: "Docker加速器"
 ---
 
-# Docker for Mac加速器
-
 ## DaoCloud加速器
 `docker pull`命令在中国访问起来有点不稳定，一开始我用的[DaoCloud加速器](https://www.daocloud.io/mirror.html#accelerator-doc)，使用很方便，只要在Docker for Mac的preference->Advanced->Registry mirrors里添加一个镜像地址就好了，但仍然有问题，常会下载到一半就下载不下去了。
 
