@@ -3,6 +3,8 @@ layout: post
 title: "impress.js使用初体验"
 ---
 
+![]({{ site.ur }}/images/screenshot_of_impressjs.png)
+
 # 缘起
 参加了浙大的强鹰俱乐部，俱乐部需要对学员进行筛选，也为了对我们进行锻炼，给我们分了组并安排了任务。我们小组的任务是以“智慧出行未来1~3年的发展趋势与变革方向”为主题做一个展示。为了酷炫，组长提出用prezi，但是没有人会，然后我想起了之前看到的类似prezi效果的[impress.js](https://github.com/impress/impress.js)库，就提出来用这个。
 
