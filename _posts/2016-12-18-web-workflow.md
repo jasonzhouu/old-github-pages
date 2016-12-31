@@ -4,6 +4,7 @@ title: "前端开发工作流"
 ---
 
 以下内容根据”[猿生态十城沙龙·杭州](http://www.devhub.cc/api//h5/activity/127196f1224cbb936df700dca32ea758)“上网易云信负责人[张迎亚](https://www.linkedin.com/in/%E8%BF%8E%E4%BA%9A-%E5%BC%A0-911073b4)的演讲“漫谈前端开发工作流”整理而成。
+![]({{ site.ur }}/images/WechatIMG41.jpeg)
 
 ## 从工作坊到流水线
 前端开发从最开始可以一个人手工用HTML, CSS, Javascript制作网站已经转变成了如今需要团队协作才能完成，一些大型的网站一个人已经是很难完成了，团队里每个人只负责整个项目中的一部分。就像汽车生产的流水线一样，没有人能独立制造一辆汽车，汽车生产的每个员工都只负责整个流水线上的一个细小流程。
@@ -112,3 +113,12 @@ ES2015的最新语法：
 ## 组件化
 一项工程由这些组成：组件，模块，公共方法
 使用组件从而实现功能的复用，组件是由完整的HTML, CSS, JS构成的。
+
+
+## PS
+附上认真听讲做笔记的我，虽然是这个演讲的前一场。
+![]({{ site.ur }}/images/WechatIMG58.jpeg)
+张迎亚就是画面左边的那一个。
+
+以及演讲录音，包括这一场和下一场华为开发者社区的开发者的演讲。
+<object type="application/x-shockwave-flash" id="ximalaya_player" data="http://www.ximalaya.com/swf/sound/red.swf?id=27085463" width="260" height="36"></object>
