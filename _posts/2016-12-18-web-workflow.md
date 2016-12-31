@@ -3,7 +3,10 @@ layout: post
 title: "前端开发工作流"
 ---
 
+<object type="application/x-shockwave-flash" id="ximalaya_player" data="http://www.ximalaya.com/swf/sound/red.swf?id=27085463" width="260" height="36"></object>
+
 以下内容根据”[猿生态十城沙龙·杭州](http://www.devhub.cc/api//h5/activity/127196f1224cbb936df700dca32ea758)“上网易云信负责人[张迎亚](https://www.linkedin.com/in/%E8%BF%8E%E4%BA%9A-%E5%BC%A0-911073b4)的演讲“漫谈前端开发工作流”整理而成。
+
 ![]({{ site.ur }}/images/WechatIMG41.jpeg)
 
 ## 从工作坊到流水线
@@ -121,4 +124,3 @@ ES2015的最新语法：
 张迎亚就是画面左边的那一个。
 
 以及演讲录音，包括这一场和下一场华为开发者社区的开发者的演讲。
-<object type="application/x-shockwave-flash" id="ximalaya_player" data="http://www.ximalaya.com/swf/sound/red.swf?id=27085463" width="260" height="36"></object>
