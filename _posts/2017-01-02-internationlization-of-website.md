@@ -28,6 +28,10 @@ Angular制作了相应的库[angular-translater](https://angular-translate.githu
 
  ![]({{site.url}}/images/Snip20170102_6.png)
  
+ i18n是Internationalization and localization的缩写，wikipedia讲解[Internationalization and localization](https://en.wikipedia.org/wiki/Internationalization_and_localization)时提到：
+
+ >The terms are frequently abbreviated to the numeronyms i18n (where 18 stands for the number of letters between the first i and the last n in the word internationalization, a usage coined at DEC in the 1970s or 80s) and L10n for localization, due to the length of the words.
+ 
 ### yahoo出品的[format.js](http://formatjs.io/)
 支持React, Ember框架，react对应的[react-intl](https://github.com/yahoo/react-intl)有3700多星。
 
