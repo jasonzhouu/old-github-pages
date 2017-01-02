@@ -6,7 +6,7 @@ title: "网站的国际化（支持多语言）"
 ## 支持多语言的重要性
 全世界有很多语言，在互联网上仅使用人数超过一亿的语言就有7种。
 
-![]({{site.url}}/images/most_used_languages_on_the_internet_2015.png)
+![](http://www.internetworldstats.com/images/languages2016.png)
 
 虽然中国人口数量很大，很多网站仅仅面向国内就能生存，但在21世纪我们必须要有国际化视野。正如吴军老师说的：
 
