@@ -18,7 +18,7 @@ title: "网站的国际化（支持多语言）"
 
 而且很多国家的网速比我们更快
 
-![](http://ourworldindata.org/wp-content/uploads/2015/07/ourworldindata_average-download-speeds.jpg)
+![]({{site.url}}/images/ourworldindata_average-download-speeds.jpg)
 
 在[internet live stats](http://www.internetlivestats.com/)可以看到全世界有35亿多的互联网用户，中国互联网用户数量全世界第一，有7亿，但也只占五分之一。将一些比中国经济更发达的国家的互联网用户数加起来有超过10亿，他们使用的语言非常之多，有英语、葡萄牙语、日语、俄语、德语、法语、韩语。
 
