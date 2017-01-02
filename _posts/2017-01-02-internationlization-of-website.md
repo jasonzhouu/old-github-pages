@@ -16,7 +16,7 @@ title: "网站的国际化（支持多语言）"
 
 ![](https://i0.wp.com/geonet.oii.ox.ac.uk/wp-content/uploads/sites/46/2015/07/OII-Internet_population_cartogram.png)
 
-很多国家的网速比我们快
+而且很多国家的网速比我们更快
 
 ![](http://ourworldindata.org/wp-content/uploads/2015/07/ourworldindata_average-download-speeds.jpg)
 
