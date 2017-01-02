@@ -20,7 +20,9 @@ title: "网站的国际化（支持多语言）"
 
 ![](http://ourworldindata.org/wp-content/uploads/2015/07/ourworldindata_average-download-speeds.jpg)
 
-在[internet live stats](http://www.internetlivestats.com/)可以看到全世界有35亿多的互联网用户，中国网民数量全世界第一，有7亿，但也只占五分之一而已。
+在[internet live stats](http://www.internetlivestats.com/)可以看到全世界有35亿多的互联网用户，中国互联网用户数量全世界第一，有7亿，但也只占五分之一而已。将一些发达国家的互联网用户数加起来则超过中国。
+
+![]({{site.url}}/images/Snip20170102_9.png)
 
 要让网站面向全世界，就必须实现多语言化。
 
