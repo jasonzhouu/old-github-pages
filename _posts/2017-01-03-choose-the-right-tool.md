@@ -15,7 +15,9 @@ title: "用正确的工具"
 上面4种制作网站的方式现在应该都有人用，因为它们都有各自适用的场景。最关键的永远是思考自己要制作的网站的特点，以及它最适合的制作方式。
 
 ## 我的使用经历
-我在学习 html&css 4天后制作的第一个网站就是用第一种方式制作的，它只有两三个页面，并没有太大问题，而且可以帮助我练习这两种语言。我现在用的博客就是用第二种方式制作的，它让我快速的制作出了自己的博客，而不需要了解太多里面的技术，因为整个网站自动生成页面的过程jekyll已经帮我实现了，也有大量别人做的现成的主题，我只要明白使用规则，按照规则使用就行。这样勉强可以用，但是体验并不好我认为。虽然它让我对网站的主题拥有了更大的控制权，但相比“简书”这种博客网站，使用体验还是稍微差一点。在“简书”上我直接在网站上写作，直接按发表，文章就发出了，但是jekyll则需要我生成markdown文件，并上传到服务器指定的文件夹里，而且每一次修改我都需要重新上传。
+我在学习 html&css 4天后制作的第一个网站就是用第一种方式制作的，它只有两三个页面，并没有太大问题，而且可以帮助我练习这两种语言。
+
+我现在用的博客就是用第二种方式制作的，它让我快速的制作出了自己的博客，而不需要了解太多里面的技术，因为整个网站自动生成页面的过程jekyll已经帮我实现了，也有大量别人做的现成的主题，我只要明白使用规则，按照规则使用就行。这样勉强可以用，但是体验并不好。虽然它让我对网站的主题拥有了更大的控制权，但相比“简书”这种博客网站，使用体验还是稍微差一点。在“简书”上我直接在网站上写作，直接按发表，文章就发出了，但是jekyll则需要我生成markdown文件，并上传到服务器指定的文件夹里，而且每一次修改我都需要重新上传。
 
 ## Drupal
 今天在宁皓网里看到王皓因为参加drupal camp线下聚会而写的一篇文章，总结了制作这个网站的历程。宁皓网是用drupal制作的，而且自从2006年诞生以来几乎没有改动过。他认为drupal让他这种不懂技术的人，也大概能实现自己的想法。引用原文：
@@ -38,13 +40,13 @@ title: "用正确的工具"
 任何工具都不是万能的，它都有自己擅长的方面、不擅长的方面，所以我们永远都应该要选择合适的工具，而不是看到一个工具强大的方面就不顾一切地去用。
 
 ## Drupal适合的场景和不适合的场景
-本着这种想法，我上谷歌搜索"drupal good at"，想了解drupal擅长什么，不擅长什么。这两个网页解决了我的疑问, [Drupal. Good or bad? : PHP - Reddit](https://www.reddit.com/r/PHP/comments/2v2cnu/drupal_good_or_bad/).其中一个人回答：
+本着这种想法，我上谷歌搜索"drupal good at"，想了解drupal擅长什么，不擅长什么。两个网页解决了我的疑问, 第一个是[Drupal. Good or bad? : PHP - Reddit](https://www.reddit.com/r/PHP/comments/2v2cnu/drupal_good_or_bad/).
 
 >The problem is that Drupal and WordPress are not custom application frameworks: they're CMSes, and they are designed to handle specific use cases that fall within that domain: Drupal is more geared towards enterprise-esque monolithic content management while WordPress is geared towards blogs and mom-and-pop brochureware sites.
 
-正如里面说的Drupal, WordPress本质上还是【内容】管理系统，Drupal适合企业的大型内容管理，WordPress适合个人喝博客和夫妻店这种小的网站，但它们都不适合制作web app。
+正如里面说的Drupal, WordPress本质上还是【内容】管理系统，Drupal适合企业管理大量的内容，WordPress适合个人博客和夫妻店这种小的网站，但它们都不适合制作web app。
 
-另外一篇，[When is Drupal not the right choice? - Yuriy Babenko](http://yuriybabenko.com/blog/when-drupal-not-right-choice)，后面这篇的作者用drupal做过非常多项目，在很多需求场景都用过Drupal。他说：
+另外一篇，[When is Drupal not the right choice? - Yuriy Babenko](http://yuriybabenko.com/blog/when-drupal-not-right-choice)，作者用drupal做过非常多的项目，遇到过很多需求场景。
 
 >**What is Drupal?**
 >
@@ -75,13 +77,13 @@ title: "用正确的工具"
 >
 >At the end of the day, it's in your (and your client's) best interest to scope out the projects properly, and pick the best tool for the job, which may not be the one you're most experienced with.
 
-Drupal是一个大而全的工具库，这些工具很适合用于架构和管理内容，它的好处是给我们带来了很大方便，我们只要使用使用它30 - 40%的功能就足以作出一个内容网站。
+Drupal是一个大而全的工具库，这些工具很适合用于架构和管理内容，它的好处是给我们带来了很大方便，我们只要使用使用它30 - 40%的功能就足以制作一个内容网站。
 
-但是这带来的问题是
+但是这带来的一些问题：
 
  - 运行性能的下降，如果想要对它的性能进行优化，面对一大堆的代码，难度会非常之大。
  - 如果要添加一些库、模块，并不能保证和Drupal兼容。
- - 如果要在Drupal基础上做一些开发，了解Drupal内部的原理会很耗时间。对于目标还不明确，经常要改动的初创项目，极其不适合。
+ - 如果要在Drupal基础上做一些开发，了解Drupal内部的原理会很耗时间。非常不适合目标还不明确，需要经常改动的初创项目。
 
 ## 情况明了
 
@@ -89,4 +91,5 @@ Drupal方便快速开发一个内容网站，这个网站最好做好之后就�
 
 如果项目经常要改动，有很多用户驱动的内容，需要很多模块、第三方的库，用户量大，对性能有要求，那就不适合用Drupal。
 
+## 项目开始前要评估
 在开始项目前一定要对项目进行评估，然后选择合适的工具，即使这个工具并不是你最擅长的。
