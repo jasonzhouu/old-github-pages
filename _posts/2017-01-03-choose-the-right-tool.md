@@ -30,17 +30,20 @@ title: "用正确的工具"
 
 ## 用正确的工具
 但是我大概是想起之前尤雨溪在演讲里说的：
+
 >要选择合适的工具。
 
 虽然他讲这个的背景是指需求的内在复杂度和工具的复杂度要匹配。大概意思就是不要用宰牛刀杀鸡，也不要用小刀宰牛，根据不同的场景用最适合的工具。
 
 ## Drupal适合的场景和不适合的场景
 本着这种理念，我上谷歌搜索"drupal good at"，想了解drupal擅长什么，不擅长什么。这两篇文章解决我的问题,[Drupal. Good or bad? : PHP - Reddit](https://www.reddit.com/r/PHP/comments/2v2cnu/drupal_good_or_bad/).其中一个人回答：
+
 >The problem is that Drupal and WordPress are not custom application frameworks: they're CMSes, and they are designed to handle specific use cases that fall within that domain: Drupal is more geared towards enterprise-esque monolithic content management while WordPress is geared towards blogs and mom-and-pop brochureware sites.
 
 正如里面说的Drupal, WordPress本质上还是【内容】管理系统，Drupal适合企业的大型内容管理，WordPress适合个人喝博客和夫妻店这种小的网站，但它们都不是适合制作web app。
 
 另外一篇，[When is Drupal not the right choice? | Yuriy Babenko](http://yuriybabenko.com/blog/when-drupal-not-right-choice)，后面这篇的作者用drupal做过非常多项目，遇到过很多种需求。他说：
+
 >An experienced Drupal developer can dissect the system, turn it sideways, and make it do things it was never even remotely intended for (while still following the best practices), but the tricky part is looking at every project objectively and deciding not whether you can, but whether you should.
 >
 >Drupal's tools are fantastic at structuring and managing content. The Entity, Field and Form APIs make managing content a pleasure, while modules like Taxonomy and Menu give us efficient ways of structuring, organizing, and filtering the content. Even on the presentation side of things we've got the flexible theme layer and tools like Display Suite to give us more options than anyone is likely to need. If your project's primary uses cases centre around creating, managing and viewing content, all this will combine for a great developer experience.
