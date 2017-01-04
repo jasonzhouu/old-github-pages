@@ -15,6 +15,7 @@ Github Pages给我们提供了免费的托管静态网站的服务，但它有�
 一般的做法是，将源文件和编译好的文件放在github不同的分支：Gatsby源文件放在gatsby分支，编译好的文件放在gh-pages分支，博客通过gh-pages分支进行访问。这样既有一个远程版本库用来管理代码、多人协作、开源，又能利用免费的Github Pages托管博客。
 
 ## Gatsby和Jekyll的比较
+### 访问速度比较
 访问用Gatsby制作的博客时，可以发现，打开一个站内链接，访问速度很快，并没有刷新整个网页。但是访问Jekyll制作的博客，每打开一个页面，都要整页刷新。
 
 这正体现了React的优势所在，React在浏览器上运行时，利用DOM diff算法，从而优化了访问的性能。引用[阮一峰——React入门教程](http://www.ruanyifeng.com/blog/2015/03/react.html)里的文字：
@@ -22,3 +23,6 @@ Github Pages给我们提供了免费的托管静态网站的服务，但它有�
 >根据 React 的设计，所有的 DOM 变动，都先在虚拟 DOM 上发生，然后再将实际发生变动的部分，反映在真实 DOM上，这种算法叫做 `DOM diff`，它可以极大提高网页的性能表现。
 
 虽然因为Github Pages只能托管静态文件的缘故，导致不能发挥React完整的优势。否则可以通过组件动态生成html文件，用`DOM diff`算法以减少网络请求。我们必须提前将文件打包、编译、压缩好，给每一篇博客都生成一个完整的html页面。但是打包好的React文件传到浏览器后，React的`DOM diff`算法还是能发挥它的部分优势，即只改变变动的DOM，而不是刷新整个页面。
+
+### 上传步骤的比较
+Gatsby比Jekyll多一个步骤，运行命令行`gatsby build`。如果用Github Desktop的话需要切换一次界面，反倒不如也用git的命令行工具执行上传命令。
