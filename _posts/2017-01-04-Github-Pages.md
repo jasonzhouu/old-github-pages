@@ -6,7 +6,7 @@ title: "Github Pages和Gatsby"
 Github Pages给我们提供了免费的托管静态网站的服务，但它有个限制：只能用静态文件，不能动态生成页面。它只支持一种动态生成页面的工具——用Ruby编写的Jekyll。那如果要用React呢？
 
 ## 缘起
-前天看到[Sacha Greif](https://twitter.com/SachaGreif)写的这篇[A Study Plan To Cure JavaScript Fatigue](https://medium.freecodecamp.com/a-study-plan-to-cure-javascript-fatigue-8ad3a54f2eb1#.p6aknt6bp)[Sacha Greif](https://twitter.com/SachaGreif)，这帮我确定了学习React的路径，并按照作者说的用Gatsby制作博客作为练习：
+前天看到[Sacha Greif](https://twitter.com/SachaGreif)写的这篇[A Study Plan To Cure JavaScript Fatigue](https://medium.freecodecamp.com/a-study-plan-to-cure-javascript-fatigue-8ad3a54f2eb1#.p6aknt6bp)，这帮我确定了学习React的路径，并按照作者说的用Gatsby制作博客作为练习：
 
 >I believe the best way to learn a framework or a language is to just use it. And personal projects are the perfect occasion to try out new technologies.
 >
