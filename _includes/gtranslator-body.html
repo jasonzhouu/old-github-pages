@@ -3,7 +3,7 @@
 <div id="google_translate_element"></div><script type="text/javascript">
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
-{% if site.translate.language %}  pageLanguage: '{{ site.translate.language }}', {% else %}  pageLanguage: 'en', {% endif %}
+{% if site.translate.language %}  pageLanguage: '{{ site.translate.language }}', {% else %}  pageLanguage: 'zh', {% endif %}
   layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT{% if site.google_analytics %}, gaTrack: true, gaId: '{{ site.google_analytics }}'{% endif %}
 }, 'google_translate_element');
 }</script>
