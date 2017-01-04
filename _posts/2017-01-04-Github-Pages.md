@@ -3,7 +3,22 @@ layout: post
 title: "Github Pages和Gatsby"
 ---
 
-Github Pages给我们提供了免费的托管静态网站的服务，但它有个限制：只能用静态文件，不能动态生成页面。它只支持一种动态生成页面的工具——用Ruby编写的Jekyll。
+Github Pages给我们提供了免费的托管静态网站的服务，但它有个限制：只能用静态文件，不能动态生成页面。它只支持一种动态生成页面的工具——用Ruby编写的Jekyll。那如果要用React呢？
+
+## 缘起
+前天看到[Sacha Greif](https://twitter.com/SachaGreif)写的这篇[A Study Plan To Cure JavaScript Fatigue](https://medium.freecodecamp.com/a-study-plan-to-cure-javascript-fatigue-8ad3a54f2eb1#.p6aknt6bp)[Sacha Greif](https://twitter.com/SachaGreif)，这帮我确定了学习React的路径，并按照作者说的用Gatsby制作博客作为练习：
+
+>I believe the best way to learn a framework or a language is to just use it. And personal projects are the perfect occasion to try out new technologies.
+>
+>A personal project could be anything from a single page to a complex web app, but I feel like redesigning your own personal site can be a good middle ground.
+>
+>Now I did say earlier that using single-page apps for static content was often overkill, but React actually has a secret weapon: Gatsby, a React static site generator that lets you “cheat” and get all the benefits of React without any of the downsides.
+
+React是用来制作单页应用的，用来制作静态的博客多少有点不适合，有人在[Hacker News](https://news.ycombinator.com/item?id=10289168)上表示质疑，Gatsby的作者Kyle Mathews回应道，用React制作博客只是为了让人更快地了解React这个框架。
+
+>Blogs are basically the TODO app of the static site generator world. They're a simple well-understood pattern that let's someone easily evaluate a new framework.
+
+事实也是如此，在学习和使用Gatsby的过程中，我对React的特性确实有了更深的了解。
 
 ## Gatsby
 Gatsy是什么？是一个模块，引用[Scott Nonnenberg](https://blog.scottnonnenberg.com/static-site-generation-with-gatsby-js/)的解释：
@@ -34,7 +49,7 @@ bundle.js包含了整个网站要用到的数据，点击站内链接链接时�
 Gatsby的核心是React框架，React在浏览器、服务器上都能运行，结合Webpack，将整个网站打包、编译、压缩。运行`gatsby build --prefix-links`命令行就能完成，Gatsby集成了这些要用到的打包工具。将html, css, js和图片等所有的文件打包生成静态文件，放到`/public`文件夹。
 
 ## branch
-一般的做法是，将源文件和编译好的文件放在github不同的分支：Gatsby源文件放在gatsby分支，编译好的文件放在gh-pages分支，博客通过gh-pages分支进行访问。这样既有一个远程版本库用来管理代码、多人协作、开源，又能利用免费的Github Pages托管博客。
+一般的做法是，将源文件和编译好的文件放在Github不同的分支：Gatsby源文件放在gatsby分支，编译好的文件放在gh-pages分支，博客通过gh-pages分支进行访问。这样既有一个远程版本库用来管理代码、多人协作、开源，又能用免费的Github Pages托管博客。
 
 ## Gatsby和Jekyll的比较
 ### 访问速度
