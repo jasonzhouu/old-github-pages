@@ -9,11 +9,15 @@ Github Pages给我们提供了免费的托管静态网站的服务，但它有�
 Gatsy是什么？是一个模块，引用[Scott Nonnenberg](https://blog.scottnonnenberg.com/static-site-generation-with-gatsby-js/)的话：
 
 >It’s a node module which weaves together React.js, React-Router, webpack, and webpack-static-site-generator. You get a nice development experience with hot-reload for page contents, styles and page structure, and you’re working with the same markup as what is generated to disk for production builds. It’s as simple as running `gatsby develop` or `gatsby build` on the command-line.
+>
+>Gatsby configures everything for you, resulting in the same benefits with a lot less work setting up a new project.
 
-最近学习React，为了练习，正在用Gatsby制作博客。Gatsby是用React框架制作的，React在浏览器、服务器上都能运行。结合Webpack, Babel等工具，可以在服务器上将相关的文件打包、编译、压缩好，然后发给浏览器，并利用组件、virtual DOM减少http请求，但这是Github Pages所不支持的。
+Gatsby是一个node模块，它集成了react, webpack，而且配置好了，只需要运行`gatsby build`就可以将各种组件打包成静态文件，以便托管在Github Pages上。
 
-## gatsby build
-但这也有解决办法，那就是在本地完成这些步骤，运行`gatsby build --prefix-links`命令行工具。Gatsby集成了这些打包工具，将html, css, js和图片等所有的文件打包到`/public`文件夹。这些是静态文件，可以直接用浏览器打开，从而可以托管在Github Pages上。
+## 为什么要打包成静态文件？
+Gatsby的核心是React框架，React在浏览器、服务器上都能运行，结合Webpack, Babel等工具，可以在服务器上动态生成页面，将相关的文件打包、编译、压缩好发给浏览器，并利用组件、virtual DOM减少http请求，但Github Pages只支持静态文件。
+
+但为了使用免费的Github Pages，我们可以在本地完成这些步骤，运行`gatsby build --prefix-links`命令行工具。Gatsby集成了这些打包工具，将html, css, js和图片等所有的文件打包生成静态文件，放到`/public`文件夹。
 
 ## branch
 一般的做法是，将源文件和编译好的文件放在github不同的分支：Gatsby源文件放在gatsby分支，编译好的文件放在gh-pages分支，博客通过gh-pages分支进行访问。这样既有一个远程版本库用来管理代码、多人协作、开源，又能利用免费的Github Pages托管博客。
