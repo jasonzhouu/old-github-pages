@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Github Pages"
+title: "Github Pages和React"
 ---
 
 Github Pages给我们提供了免费的托管静态网站的服务，但它只能提供静态文件。如果想用来动态生成页面的网站，那是实现不了的。不过它支持一种动态生成页面的服务，Jekyll。你把文章写在markdown里，放在制定的文件夹，jekyll会自动将这篇文章的链接添加到主页。别人点击链接时，jekyll能在服务器上运行，生成html页面，传给浏览器。
