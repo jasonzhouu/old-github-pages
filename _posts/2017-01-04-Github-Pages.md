@@ -21,6 +21,7 @@ Gatsby会将整个网站打包、压缩到bundle.js，通过index.html访问主�
 bundle.js包含了整个网站要用到的数据，点击站内链接链接时会直接从中获取，反应非常迅速，就像本地应用一样。
 
 不过这样的缺陷也很明显，如果网站的页面很多，bundle.js文件会很大，第一次加载网站时会很花时间。Gatsby的作者Kyle Mathews在演讲[DEVELOPING WITH REACT: GATSBYJS](http://www.staticwebtech.com/presentations/developing-with-react-gatsbyjs/)里是这样回应的：
+
 >Right now you’d probably top out at around 500 to 1000 pages is where Gatsby could easily do.
 >
 >The main bottleneck is Gatsby turns all your content, combines all your content into the JavaScript bundle so that you have kind of that single page app experience once it’s loaded, all the content’s there in your browser and you just click around and it’s all there. But at 500,000 pages, that JavaScript bundle is starting to get pretty big. More than you’d normally want to load into your site and so but there’s a process where, with Webpack where you can split up the bundle and asynchronously load different bundles as you navigate around the site. You’d only need to load one of those bundles when you first open the site and then if you navigate to another section of the site it would then load in the background the JavaScript you need for that section of the site. 
