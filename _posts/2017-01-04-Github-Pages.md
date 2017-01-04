@@ -6,6 +6,10 @@ title: "Github Pages和React"
 Github Pages给我们提供了免费的托管静态网站的服务，但它有个限制：只能用静态文件。如果想动态生成页面，那是实现不了的。它只支持一种动态生成页面的服务——用Ruby编写的Jekyll。你用markdown写好文章，保存并放在制定的文件夹，jekyll会自动将这篇文章的链接添加到主页。别人点击链接时，jekyll能在服务器上运行，生成html页面，传给浏览器。
 
 ## Gatsby
+Gatsy是什么？是一个模块，引用[Scott Nonnenberg](https://blog.scottnonnenberg.com/static-site-generation-with-gatsby-js/)的话：
+
+>It’s a node module which weaves together React.js, React-Router, webpack, and webpack-static-site-generator. You get a nice development experience with hot-reload for page contents, styles and page structure, and you’re working with the same markup as what is generated to disk for production builds. It’s as simple as running `gatsby develop` or `gatsby build` on the command-line.
+
 最近学习React，为了练习，正在用Gatsby制作博客。Gatsby是用React框架制作的，React在浏览器、服务器上都能运行。结合Webpack, Babel等工具，可以在服务器上将相关的文件打包、编译、压缩好，然后发给浏览器，并利用组件、virtual DOM减少http请求，但这是Github Pages所不支持的。
 
 ## gatsby build
