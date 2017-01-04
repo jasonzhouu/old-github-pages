@@ -73,7 +73,7 @@ title: "用正确的工具"
 >
 >If you are a start up, building a proof of concept, or otherwise an application that is not 100% defined and may change at any moment (ie. a real agile project), Drupal is the last thing you want to be using. 
 >
->**xtl;dr;**
+>**tl;dr;**
 >
 >At the end of the day, it's in your (and your client's) best interest to scope out the projects properly, and pick the best tool for the job, which may not be the one you're most experienced with.
 
