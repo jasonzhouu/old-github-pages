@@ -41,6 +41,8 @@ bundle.js包含了整个网站要用到的数据，点击站内链接链接时�
 >
 >The main bottleneck is Gatsby turns all your content, combines all your content into the JavaScript bundle so that you have kind of that single page app experience once it’s loaded, all the content’s there in your browser and you just click around and it’s all there. But at 500,000 pages, that JavaScript bundle is starting to get pretty big. More than you’d normally want to load into your site and so but there’s a process where, with Webpack where you can split up the bundle and asynchronously load different bundles as you navigate around the site. You’d only need to load one of those bundles when you first open the site and then if you navigate to another section of the site it would then load in the background the JavaScript you need for that section of the site. 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/G4LVKJOOj7o" frameborder="0" allowfullscreen></iframe>
+
 通过限制webpack打包的bundle.js文件大小的上限，将网站打包成多个bundle.js，当访问到加载的第一个bundle.js文件外的页面时会自动加载对应的bundle.js。
 
 
