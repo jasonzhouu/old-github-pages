@@ -15,6 +15,8 @@ title: '永远做当下最重要的事'
 
 但是这三者有都有其他可以替代的选择，React有Vue, Angular; Node有PHP, Rails, Python; Bootstrap有Foundation, Semantic, Materialize.
 
+现在我通过Gatsby先快速了解React，结果我很快忘记自己的初衷。开始全面了解制作博客的工具，了解Gatsby，而忘记了我的主要任务是学习React，而不是把博客、Gatsby吃透。在对React有了一定了解后，就应该果断放弃继续深入了解Gatsby，我没必要去了解它个方面是怎么设计的，而应该转而去加强自己对React方面的基础知识。
+
 ## 但是不管有多少选择，都应该挑选其中一个好上手的，先用起来
 
 就像我使用Git的过程，一开始用命令行，然后用Github Desktop, 后来用SourceTree，这些工具实现的功能都一样，但是使用体验又有很大差别，但无论如何最关键的永远是：**先用起来**，然后再想更好的选择。
