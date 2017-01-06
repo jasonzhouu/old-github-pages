@@ -11,7 +11,7 @@ title: '永远做当下最重要的事'
 
 ## 那什么知识是最重要的？
 
-那就是使我能够做出可以运行的产品所应该用到的知识。当下对我最重要的就是React、Node、Bootstrap。这三者分别负责前端展示、后端、UI。
+那就是使我能够做出可以运行的产品所应该用到的知识。**当下对我最重要的就是React、Node、Bootstrap。**这三者分别负责前端展示、后端、UI。
 
 但是这三者有都有其他可以替代的选择，React有Vue, Angular; Node有PHP, Rails, Python; Bootstrap有Foundation, Semantic, Materialize.
 
