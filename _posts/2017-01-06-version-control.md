@@ -15,7 +15,7 @@ title: "【占坑帖】Git"
 - 2016.06.14 注册Github
 - 2016.12.04 在宁皓网看Git的教学视频
 - 2016.12.10 建立第一个repositoriy---jasonzhouu.github.io，作为个人博客
-- 2017.01.06 阅读*Pro Git*
+- 2017.01.06 阅读*[Pro Git](https://git-scm.com/book/zh/v2)*
 
 有待加强的知识点:
 
