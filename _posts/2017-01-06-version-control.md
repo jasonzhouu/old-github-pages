@@ -47,7 +47,7 @@ title: "【占坑帖】Git"
 
 **步骤：**
 
-1. 在Gatsby源文件目录下：
+1.在Gatsby源文件目录下：
 
 在.gitignore文件下添加`public`，Git将忽略这个目录，推送到远程分支时也不会推送这个文件夹，`node_modules`目录也是通过这个方法被忽略的。
 
@@ -60,7 +60,7 @@ title: "【占坑帖】Git"
 > gatsby build	编译成静态文件
 ```
 
-2. 在`/public`目录下：
+2.在`/public`目录下：
 
 ```CLI
 > git init
