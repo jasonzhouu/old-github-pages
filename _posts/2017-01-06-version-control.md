@@ -22,4 +22,20 @@ title: "【占坑帖】Git"
 - pull request
 - branch
 
-同样知识占坑，后面逐渐补上。
+常见命令：
+
+| 任务            | 命令                                       |
+| ------------- | ---------------------------------------- |
+| 查看本地分支        | git branch                               |
+| 删除本地分支        | git branch -d + 分支名                      |
+| 推送到远程分支       | git push origin + 远程分支名                  |
+| 查看远程分支        | git remote show origin                   |
+| 删除远程分支        | git push origin  --delete + 远程分支名        |
+| 查看所有分支（本地+远程） | git branch -a                            |
+| 添加远程          | git remote add + 自定义远程名 + https://github.com/###/###.git |
+| 查看添加的远程       | git remote (-v) 添加后缀，结果更详细               |
+| 获取远程的更新       | git fetch                                |
+| 合并            | git merge 远程名/本地分支名                      |
+| 本地分支改名        | git branch -m + 原分支名 + 目标分支名             |
+
+占坑，其余的逐渐补上。
