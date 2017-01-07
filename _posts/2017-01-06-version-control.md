@@ -41,9 +41,13 @@ title: "【占坑帖】Git"
 
 ### 一、Gatsby
 
-**问题：**Gatsby源文件在Github Pages无法运行，Github Pages只支持静态文件。命令行`>gatsby guild`可以编译出静态文件放在`/public`目录，将`/public`目录下的文件放到Github上。但最好有两个分支，分别用于管理Gatbsy源文件和`/public`文件夹。
+**问题：**
 
-**解决办法：**将Gatsby源文件放在master分支，通过.gitignore文件忽略`/public`文件夹。将`/public`文件夹放在gh-pages分支。
+Gatsby源文件在Github Pages无法运行，Github Pages只支持静态文件。命令行`>gatsby guild`可以编译出静态文件放在`/public`目录，将`/public`目录下的文件放到Github上。但最好有两个分支，分别用于管理Gatbsy源文件和`/public`文件夹。
+
+**解决办法：**
+
+将Gatsby源文件放在master分支，通过.gitignore文件忽略`/public`文件夹。将`/public`文件夹放在gh-pages分支。
 
 **步骤：**
 
