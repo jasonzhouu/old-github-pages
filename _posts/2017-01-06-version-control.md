@@ -37,4 +37,37 @@ title: "【占坑帖】Git"
 | 合并      | git merge 远程名/本地分支名                      |
 | 本地分支改名  | git branch -m + 原分支名 + 目标分支名             |
 
-占坑，其余的逐渐补上。
+## 应用实例
+
+### 一、Gatsby
+
+**问题：**Gatsby源文件在Github Pages无法运行，Github Pages只支持静态文件。命令行`>gatsby guild`可以编译出静态文件放在`/public`目录，将`/public`目录下的文件放到Github上。但最好有两个分支，分别用于管理Gatbsy源文件和`/public`文件夹。
+
+**解决办法：**将Gatsby源文件放在master分支，通过.gitignore文件忽略`/public`文件夹。将`/public`文件夹放在gh-pages分支。
+
+**步骤：**
+
+1. 在Gatsby源文件目录下：
+
+在.gitignore文件下添加`public`，Git将忽略这个目录，推送到远程分支时也不会推送这个文件夹，`node_modules`目录也是通过这个方法被忽略的。
+
+```CLI
+> git init
+> git add .
+> git commit -m "..."
+> git remote add origin http://github.com/###/###.git	添加远程
+> git push origin master	推送到远程的master分支
+> gatsby build	编译成静态文件
+```
+
+2. 在`/public`目录下：
+
+```CLI
+> git init
+> git add .
+> git commit -m "..."
+> git remote add origin http://github.com/###/###.git	添加远程
+> git push origin gh-pages	推送到远程的gh-pages分支（会在远程自动创建gh-pages分支）
+```
+
+占坑，其余的逐渐补上:smile:
