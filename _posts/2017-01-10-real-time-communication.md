@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "WebSocket在小程序中的应用"
+title: "WebSocket协议在小程序中实时通讯中的应用"
 ---
 
 ## 为什么要使用WebSocket？
@@ -94,3 +94,11 @@ Socket.io需要包括分别运行在服务器和浏览器的两部分：
 > is a Python web framework and asynchronous networking library, originally developed at [FriendFeed](http://friendfeed.com/). By using non-blocking network I/O, Tornado can scale to tens of thousands of open connections, making it ideal for [long polling](http://en.wikipedia.org/wiki/Push_technology#Long_Polling), [WebSockets](http://en.wikipedia.org/wiki/WebSocket), and other applications that require a long-lived connection to each user.
 >
 > (source:https://github.com/tornadoweb/tornado)
+
+## Socket.io Tornado的实现方法
+
+待续。
+
+Socket.io参考：http://www.henkuai.com/forum.php?mod=viewthread&tid=15448&highlight=socket
+
+Tornado参考：https://my.oschina.net/jsongo/blog/757871
