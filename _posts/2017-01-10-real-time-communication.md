@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "WebSocket协议在小程序中实时通讯中的应用"
+title: "WebSocket协议在小程序实时通讯中的应用"
 ---
 
 ## 为什么要使用WebSocket？
