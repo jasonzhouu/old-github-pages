@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "【占坑帖】Git"
+title: "Git"
 ---
 
 ## 用到Git的原因
@@ -39,7 +39,7 @@ title: "【占坑帖】Git"
 
 ## 应用实例
 
-### 一、Gatsby
+### 使用Gatsby制作个人博客时的branch管理
 
 **问题：**
 
@@ -59,9 +59,9 @@ Gatsby源文件在Github Pages无法运行，Github Pages只支持静态文件�
 > git init
 > git add .
 > git commit -m "..."
-> git remote add origin http://github.com/###/###.git	添加远程
-> git push origin master	推送到远程的master分支
-> gatsby build	编译成静态文件
+> git remote add origin http://github.com/###/###.git	#添加远程
+> git push origin master	#推送到远程的master分支
+> gatsby build	#编译成静态文件
 ```
 
 2.在`/public`目录下：
@@ -70,8 +70,6 @@ Gatsby源文件在Github Pages无法运行，Github Pages只支持静态文件�
 > git init
 > git add .
 > git commit -m "..."
-> git remote add origin http://github.com/###/###.git	添加远程
-> git push origin gh-pages	推送到远程的gh-pages分支（会在远程自动创建gh-pages分支）
+> git remote add origin http://github.com/###/###.git	#添加远程
+> git push origin gh-pages	#推送到远程的gh-pages分支（会在远程自动创建gh-pages分支）
 ```
-
-占坑，其余的逐渐补上:smile:

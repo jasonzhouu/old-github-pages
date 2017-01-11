@@ -7,7 +7,7 @@ title: "大学生申请小程序的流程"
 
 ![]({{site.url}}/images/屏幕快照 2017-01-11 16.08.08.png)
 
-对于一般的大学生开发而言，显然不属于政府／媒体，最接近的应该是”个体工商户“。
+对于一般的大学生开发而言，显然不属于政府／媒体，最接近的应该是”个体工商户“，这也需要先去注册一下。
 
 我在杭州，所以就找到[个体工商户－杭州市市场监督管理局](https://www.google.com.sg/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0ahUKEwjg8a6MyLnRAhUMPo8KHdhmC-IQFggtMAI&url=http%3A%2F%2Fwww.hzscjg.gov.cn%2Fxkfw%2Fbszn%2Fgsdj%2Fgtgs%2Findex.htm%3Ftypeid%3D150629044715&usg=AFQjCNFtjCsOGJK78SGYiVWbqeVSMknFfg&sig2=HFf8AyAewKE4QYvrrFdn7Q&bvm=bv.143423383,d.c2I&cad=rja)，可以看到对大学生是有很多优惠的。
 
