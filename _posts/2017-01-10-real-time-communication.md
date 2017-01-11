@@ -95,10 +95,25 @@ Socket.io需要包括分别运行在服务器和浏览器的两部分：
 >
 > (source:https://github.com/tornadoweb/tornado)
 
-## Socket.io Tornado的实现方法
+## 小程序中Socket.io Tornado的实现方法
 
 待续。
 
 Socket.io参考：http://www.henkuai.com/forum.php?mod=viewthread&tid=15448&highlight=socket
 
 Tornado参考：https://my.oschina.net/jsongo/blog/757871
+
+## 商业的解决方案
+
+如果要实现即时通讯IM，自己去实现一个完全没必要。要能适应移动端多变的网络环境、负载暴增的特殊情况，其中的设计并不简单。事实上，很多云服务商都有这个服务，它们有专门的人做，性能更好。就像知乎上有人说的：
+
+> 实现IM简单功能好做，但是商用的话好多细节要推敲的。稳定性，安全性，并发量都是要考虑的，如果你们能做到那么强大的话都可以开个环信啥的了。。。。。
+>
+> 创业时期如果数据不是啥机密的东西，一切以提升速度降低成本为优先，所以公有云平台是最好的选择，千万不要自己开发
+>
+> 加一句，需要团队有大牛的基础上，优化至少半年以上才能实现商用。
+>
+> 作者：好多鱼链接：https://www.zhihu.com/question/27645230/answer/73593603来源：知乎著作权归作者所有，转载请联系作者获得授权。
+
+- [野狗云](https://docs.wilddog.com/quickstart/sync/wechat.html)
+- [网易云信](http://netease.im/?&from=bdhjjsq&url_targeting=1)
