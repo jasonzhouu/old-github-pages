@@ -120,7 +120,7 @@ title: "大学生申请小程序的流程"
 
 ##### 3.4 不过广电局已经不给直播发证了
 
-打电话到浙江省新闻出版广电局的数网处才发现现在“不给直播发证了”。
+打电话到浙江省新闻出版广电局的数网处被告知已经“不给直播发证了”。
 
 2016.9.9，国家新闻出版广电总局下发《关于加强网络视听节目直播服务管理有关问题的通知》，重申相关规定，要求网络视听节目直播机构依法开展直播服务。也就是业界所言的直播机构需要“持证上岗”。参考：[新闻出版广电总局重申：开展网络视听节目直播服务应符合现行管理规定](https://www.google.com.sg/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwigiNfa_7vRAhVMp48KHfXyDzkQFggYMAA&url=http%3A%2F%2Fwww.sarft.gov.cn%2Fart%2F2016%2F9%2F9%2Fart_110_31601.html&usg=AFQjCNHLjxsicmzgsDxzCg1N0PBzeMvSxw&sig2=KeP0fixhB-nmG_BC-8DGvQ&bvm=bv.144210762,d.c2I&cad=rja)，[8个问题看懂广电总局直播监管令-搜狐新闻](http://news.sohu.com/20160912/n468285414.shtml)
 
