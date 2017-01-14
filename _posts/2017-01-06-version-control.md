@@ -41,13 +41,15 @@ title: "Git"
 
 ### 使用Gatsby制作个人博客时的branch管理
 
-**问题：**
+**问题**
 
-Gatsby源文件在Github Pages无法运行，Github Pages只支持静态文件。命令行`>gatsby guild`可以编译出静态文件放在`/public`目录，将`/public`目录下的文件放到Github上。但最好有两个分支，分别用于管理Gatbsy源文件和`/public`文件夹。
+Gatsby源文件在Github Pages无法运行，Github Pages只支持静态文件。命令行`>gatsby guild`可以编译出静态文件放在`/public`目录，`/public`目录是我们应该放到Github上，并作为Github Pages的静态文件的目录。
 
-**解决办法：**
+但是我们的Github最好有两个分支，分别用于管理Gatbsy源文件和放置`/public`目录。那如何创建两个截然不同的分支呢？
 
-将Gatsby源文件放在master分支，通过.gitignore文件忽略`/public`文件夹。将`/public`文件夹放在gh-pages分支。
+**解决办法**
+
+目标：1. 将Gatsby源文件放在master分支，并忽略`/public`文件夹。2. 将`/public`文件夹放在gh-pages分支。
 
 **步骤：**
 
