@@ -11,7 +11,7 @@ title: "web开发中用到的流程图"
 >
 > source: [约翰内斯·古腾堡(wikipedia)](https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%BF%B0%E5%86%85%E6%96%AF%C2%B7%E5%8F%A4%E8%85%BE%E5%A0%A1)
 
-## web开发中用到的流程图
+## 流程图
 
 #### 什么是流程图
 
