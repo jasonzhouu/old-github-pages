@@ -117,3 +117,5 @@ Tornado参考：https://my.oschina.net/jsongo/blog/757871
 
 - [野狗云](https://docs.wilddog.com/quickstart/sync/wechat.html)
 - [网易云信](http://netease.im/?&from=bdhjjsq&url_targeting=1)
+- [腾讯云](https://www.qcloud.com/product/im#wiki)
+- [Lean Cloud](https://leancloud.cn/)
