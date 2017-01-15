@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "小程序开发框架的应用"
+title: "小程序开发框架"
 ---
 
 ## 小程序开发框架
@@ -17,7 +17,7 @@ title: "小程序开发框架的应用"
 
 `.js`后缀的是脚本文件，`.json`后缀的文件是配置文件，`.wxss`后缀的是样式表文件。
 
-#### [app.js](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/app.html?t=2017112)
+#### 1. [app.js](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/app.html?t=2017112)
 
 > app.js是小程序的脚本代码，用于注册一个小程序。我们可以在这个文件中监听并处理小程序的生命周期函数、声明全局变量。
 
@@ -66,7 +66,7 @@ onLaunch是生命周期函数中的一种，小程序一打开就会调用对应
 | onError  | Function | 错误监听函数           | 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息 |
 | 其他       | Any      |                  | 开发者可以添加任意的函数或数据到 Object 参数中，用 `this` 可以访问 |
 
-#### [Page.js](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/page.html)
+#### 2. [Page.js](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/page.html)
 
 每个页面也需要注册，使用`Page()` 函数用来注册一个页面。接受一个 object 参数，用来指定页面的初始数据、生命周期函数、事件处理函数等。
 
@@ -127,7 +127,7 @@ Page({
 })
 ```
 
-#### app.json
+#### 3. [app.json](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html?t=2017112)
 
 > app.json 是对整个小程序的全局配置。我们可以在这个文件中配置小程序是由哪些页面组成，配置小程序的窗口背景色，配置导航条样式，配置默认标题。注意该文件不可添加任何注释。
 
