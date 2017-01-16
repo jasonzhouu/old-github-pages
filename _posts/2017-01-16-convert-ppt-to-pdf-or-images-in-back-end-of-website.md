@@ -55,11 +55,11 @@ def PPTtoPDF(inputFileName, outputFileName, formatType = 32):
 
 #### [Ghostscript](https://www.ghostscript.com/)
 
-1. 使用Ghostscript能将PDF转成图片。
+- 使用Ghostscript能将PDF转成图片。
 
 > use ghostscript to convert the pdf to png or other image format (something along the line of `gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -r100 -sOutputFile=out.png in.pdf`)
 
-2. 可以将每一页PDF各自转成一张图片
+- 可以将每一页PDF各自转成一张图片
 
 ```shell
 gs -dNOPAUSE -sDEVICE=jpeg -r144 -sOutputFile=p%03d.jpg file.pdf
@@ -73,7 +73,7 @@ source: [Quick one: converting a multi-page PDF to a JPG for each page on OSX](h
 >
 > Specifying a single output file works fine for printing and rasterizing figures, but sometimes you want images of each page of a multi-page document. You can tell Ghostscript to put each page of output in a series of similarly named files. To do this place a template '%d' in the filename which Ghostscript will replace with the page number.
 
-3. 可以不把整个PDF转换成图片，而是选择特定一部分页，通过设置初始页面和结束页面就行了。比如只将第12张PDF转成图片:
+- 可以不把整个PDF转换成图片，而是选择特定一部分页，通过设置初始页面和结束页面就行了。比如只将第12张PDF转成图片:
 
 ```shell
 gs \
@@ -88,7 +88,7 @@ gs \
 
 source: http://stackoverflow.com/questions/5527818/ghost-script-extract-a-single-page-from-a-pdf-and-convert-it-to-a-jpg
 
-4. 还用-sPageList=pagenumber指定转换的页面。
+- 还用-sPageList=pagenumber指定转换的页面。
 
 > -sPageList=pagenumber There are three possible values for this; even, odd or a list of pages to be processed. A list can include single pages or ranges of pages. Ranges of pages use the minus sign '-', individual pages and ranges of pages are separated by commas ','. A trailing minus '-' means process all remaining pages. For example;
 >
