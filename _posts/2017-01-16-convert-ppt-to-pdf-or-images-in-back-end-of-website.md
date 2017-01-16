@@ -88,7 +88,7 @@ gs \
 
 source: http://stackoverflow.com/questions/5527818/ghost-script-extract-a-single-page-from-a-pdf-and-convert-it-to-a-jpg
 
-- 还用-sPageList=pagenumber指定转换的页面。
+- 还可以用-sPageList=pagenumber参数指定转换的页面。
 
 > -sPageList=pagenumber There are three possible values for this; even, odd or a list of pages to be processed. A list can include single pages or ranges of pages. Ranges of pages use the minus sign '-', individual pages and ranges of pages are separated by commas ','. A trailing minus '-' means process all remaining pages. For example;
 >
