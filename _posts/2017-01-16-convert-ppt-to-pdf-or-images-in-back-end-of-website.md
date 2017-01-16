@@ -7,9 +7,33 @@ title: "在网站后端将PPT文件转成PDF或图片"
 
 #### [OpenOffice.org](https://www.openoffice.org/)
 
-使用OpenOffice.org，它提供了很多Java API，功能强大，当有点难学。
+简称OOo，它提供了很多Java API，功能强大，但有点难学。
+
+## [unocon](http://dag.wiee.rs/home-made/unoconv/)
+
+unocon使用Python语言写的，用于将OpenOffice支持的文件格式互相转换。
+
+> unoconv converts between any document format that OpenOffice understands. It uses OpenOffice's UNO bindings for non-interactive conversion of documents.
+>
+> Supported document formats include Open Document Format (.odt), MS Word (.doc), MS Office Open/MS OOXML (.xml), Portable Document Format (.pdf), HTML, XHTML, RTF, Docbook (.xml), and more.
+
+使用前需要安装LibreOffice或OpenOffice
+
+> It needs a recent LibreOffice or OpenOffice with UNO bindings.
+
+支持Linux, Windows, MacOSX环境。
 
 #### [Comtypes](https://pypi.python.org/pypi/comtypes)
+
+Comtypes只能运行在windows环境：
+
+> **comtypes** is a lightweight Python COM package, based on the [ctypes](http://docs.python.org/lib/module-ctypes.html) FFI library, in less than 10000 lines of code (not counting the tests).
+>
+> **comtypes** allows to define, call, and implement custom and dispatch-based COM interfaces in pure Python. It works on Windows, 64-bit Windows, and Windows CE.
+
+下载地址：[comtypes-1.1.3-2.zip](https://pypi.python.org/packages/85/11/722b9ce6725bf8160bd8aca68b1e61bd9db422ab12dae28daa7defab2cdc/comtypes-1.1.3-2.zip#md5=4161cb8bc283a75af85e220ad662d5af)
+
+将PPT转成PDF的代码：
 
 ```python
 import comtypes.client
