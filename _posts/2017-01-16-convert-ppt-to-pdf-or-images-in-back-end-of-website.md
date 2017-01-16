@@ -3,13 +3,13 @@ layout: post
 title: "在网站后端将PPT文件转成PDF或图片"
 ---
 
-## 转成PDF
+## PPT—>PDF
 
 #### [OpenOffice.org](https://www.openoffice.org/)
 
 简称OOo，它提供了很多Java API，功能强大，但有点难学。
 
-## [unocon](http://dag.wiee.rs/home-made/unoconv/)
+#### [unocon](http://dag.wiee.rs/home-made/unoconv/)
 
 unocon使用Python语言写的，用于将OpenOffice支持的文件格式互相转换。
 
@@ -51,7 +51,7 @@ def PPTtoPDF(inputFileName, outputFileName, formatType = 32):
 #source: http://stackoverflow.com/questions/31487478/how-to-convert-a-pptx-to-pdf-using-python
 ```
 
-## 转成图片
+## PDF—>图片
 
 #### [Ghostscript](https://www.ghostscript.com/)
 
