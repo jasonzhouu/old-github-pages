@@ -53,6 +53,51 @@ def PPTtoPDF(inputFileName, outputFileName, formatType = 32):
 
 ## 转成图片
 
+#### [Ghostscript](https://www.ghostscript.com/)
+
+使用Ghostscript能将PDF转成图片。
+
+> use ghostscript to convert the pdf to png or other image format (something along the line of `gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -r100 -sOutputFile=out.png in.pdf`)
+
+可以将每一页PDF转成一张图片
+
+```shell
+gs -dNOPAUSE -sDEVICE=jpeg -r144 -sOutputFile=p%03d.jpg file.pdf
+```
+
+source: [Quick one: converting a multi-page PDF to a JPG for each page on OSX](https://www.christianheilmann.com/2012/09/30/quick-one-converting-a-multi-page-pdf-to-a-jpg-for-each-page-on-osx/)
+
+输出的文件名通过参数进行控制，具体可参考官网的[document](https://ghostscript.com/doc/9.20/Use.htm)。
+
+> One page per file
+>
+> Specifying a single output file works fine for printing and rasterizing figures, but sometimes you want images of each page of a multi-page document. You can tell Ghostscript to put each page of output in a series of similarly named files. To do this place a template '%d' in the filename which Ghostscript will replace with the page number.
+
+可以把整个PDF转换成图片，而是选择特定一部分页。比如只将第12张PDF转成图片:
+
+```shell
+gs \
+ -sDEVICE=jpeg \
+ -o %03d.jpeg \
+ -dFirstPage=12 \
+ -dLastPage=12 \
+ -dJPEGQ=30 \
+ -r72x72 \
+  file.pdf
+```
+
+source: http://stackoverflow.com/questions/5527818/ghost-script-extract-a-single-page-from-a-pdf-and-convert-it-to-a-jpg
+
+或者用-sPageList=pagenumber指定转换的页面更方便。
+
+> -sPageList=pagenumber There are three possible values for this; even, odd or a list of pages to be processed. A list can include single pages or ranges of pages. Ranges of pages use the minus sign '-', individual pages and ranges of pages are separated by commas ','. A trailing minus '-' means process all remaining pages. For example;
+>
+> -sPageList=1,3,5 indicates that pages 1, 3 and 5 should be processed.
+>
+> -sPageList=5-10 indicates that pages 5, 6, 7, 8, 9 and 10 should be processed.
+>
+> -sPageList=1, 5-10, 12- indicates that pages 1, 5, 6, 7, 8, 9, 10 and 12 onwards should be processed.
+
 #### [ImageMagick](http://www.imagemagick.org/script/index.php)
 
 然后还可以使用ImageMagick将PDF转成图片，ImageMagick是个用于创建、编辑图片的开源的软件，可以通过命令行控制。
@@ -84,9 +129,3 @@ ImageMagick在包括PythonMagick在内有4种Python语言的工具，Wand库、P
 > [Scilab Image Processing](http://siptoolbox.sourceforge.net/) toolbox utilizes ImageMagick to do imaging tasks such as filtering, blurring, edge detection, thresholding, histogram manipulation, segmentation, mathematical morphology, color image processing, etc..
 >
 > source: http://www.imagemagick.org/script/api.php#python
-
-#### [Ghostscript](https://www.ghostscript.com/)
-
-使用Ghostscript也能将PDF转成图片。
-
-> use ghostscript to convert the pdf to png or other image format (something along the line of `gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -r100 -sOutputFile=out.png in.pdf`)
