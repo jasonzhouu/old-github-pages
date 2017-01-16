@@ -167,7 +167,7 @@ app.json 配置项列表：
 | [networkTimeout](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#networktimeout) | Object       | 否    | 设置网络超时时间        |
 | [debug](https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#debug) | Boolean      | 否    | 设置是否开启 debug 模式 |
 
-#### page.json
+#### 4. page.json
 
 页面的配置比`app.json`全局配置简单得多，只是设置 app.json 中的 window 配置项的内容，页面中配置项会覆盖 app.json 的 window 中相同的配置项。页面的`.json`只能设置 `window` 相关的配置项，以决定本页面的窗口表现，所以无需写 `window` 这个键，如：
 
