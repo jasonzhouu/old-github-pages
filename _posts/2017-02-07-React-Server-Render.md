@@ -19,3 +19,11 @@ title: 'React Server Render'
 而去除多余的ajax请求的办法是，server给broswer不仅传递渲染后的完整html，还传递要用到的数据，数据放在window.initialData对象里。React组件直接调用window.initialData对象，避免发起ajax请求。React会发现virtual DOM和页面真实的DOM一样，就不会进行重新渲染了。这样减少了不必要的ajax请求和一次渲染。
 
 综上，Server Render有利于SEO和提高网站访问性能。
+
+网站访问性能一般由三方面因素决定：
+
+- 服务器架构
+- 浏览器带宽
+- 代码的设计
+
+这里提高网站访问性能是从最后一个方面入手的。
