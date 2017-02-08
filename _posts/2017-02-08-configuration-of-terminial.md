@@ -5,7 +5,7 @@ title: '命令行工具的配置'
 
 Mac上默认的shell是bash，并自带vim，自带终端工具terminal。
 
-shell负责运行CLI程序和进行信息的输入、输出，terminal是shell的包装程序，引用[[What is the difference between shell, console, and terminal?](http://superuser.com/questions/144666/what-is-the-difference-between-shell-console-and-terminal)]的回答：
+shell负责接收用户命令，比如`git add .`，然后调用相应的应用程序，它是我们控制操作系统的接口。terminal是shell的包装程序，引用[[What is the difference between shell, console, and terminal?](http://superuser.com/questions/144666/what-is-the-difference-between-shell-console-and-terminal)]的回答：
 
 > The **shell** is the program which actually processes commands and returns output. Most shells also manage foreground and background processes, command history and command line editing. These features (and many more) are standard in `bash`, the most common shell in modern linux systems.
 >
