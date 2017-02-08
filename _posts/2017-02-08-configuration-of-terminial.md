@@ -15,6 +15,8 @@ Mac上默认的命令行工具是bash，自带vim。
 
 界面颜色和字体是在终端工具的preference里设置，将在Solarized官网下载文件，在preference里倒入相应版本的配置文件，之后可以自己对颜色进行调整；字体也是先下载Meslo字体，打开字体文件，点击安装，然后在终端工具的preference里选择Meslo。我用Mac自带的terminal和另外安装的iTerm都设置了一下，iTerm的显示效果更好。
 
+BTW, 命令行工具和终端工具是分离的，我在iTerm上安装zsh的同时，打开terminal用的也会是zsh。在iTerm上安装oh-my-zsh，terminal也一样能用它oh-my-zsh上的插件。但是终端工具的显示颜色和字体是需要在各自的preference里设置的。
+
 ![]({{ site.ur }}/images/Snip20170208_1.png)
 
 ## vim
