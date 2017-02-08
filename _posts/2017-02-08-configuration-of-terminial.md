@@ -15,8 +15,12 @@ Mac上默认的命令行工具是bash，自带vim。
 
 界面颜色和字体是在终端工具的preference里设置，将在Solarized官网下载文件，在preference里倒入相应版本的配置文件，之后可以自己对颜色进行调整；字体也是先下载Meslo字体，打开字体文件，点击安装，然后在终端工具的preference里选择Meslo。我用Mac自带的terminal和另外安装的iTerm都设置了一下，iTerm的显示效果更好。
 
+![]({{ site.ur }}/images/Snip20170208_1.png)
+
 ## vim
 
 vim由当初Unix系统上的vi发展而来，vim的最大特点是跨终端，mac, windows, linux系统上都能运行，而且非常稳定。配置云服务器的时候，少不了要用到。
 
 vim也有很多插件和主题，[spf13-vim](http://vim.spf13.com/)将很多受欢迎的插件和主题集成在了一起，安装好之后，可以直接通过～/.vimrc.local的colorscheme参数设置主题，最常见的solarized, onedark都有，但是solarized在mac上有点问题。spf13-vim带有vundle插件，vundle是vim的插件管理工具，相当于node的npm，可以用它下载最新版本的vim插件，和用来升级插件。
+
+![]({{ site.ur }}/images/Snip20170208_2.png)
