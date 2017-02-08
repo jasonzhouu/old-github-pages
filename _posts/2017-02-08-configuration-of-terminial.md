@@ -27,7 +27,11 @@ vim也有很多插件和主题，[spf13-vim](http://vim.spf13.com/)将很多受�
 
 spf13-vim带有vundle插件，vundle是vim的插件管理工具，相当于node的npm，可以用它下载最新版本的vim插件，和用来升级插件。
 
-由于spf13-vim带有自动补全插件，安装spf13-vim后，编辑html的标签，也能像atom/sublime一样自动补全了，比如输入h2然后按Tab键就能自动生成`<h2></h2>`，而且支持很多种语言。
+spf13-vim安装的插件具有比如以下一些功能：
+
+- 自动补全功能，编辑html的标签，也能像atom/sublime一样自动补全了，比如输入h2然后按Tab键就能自动生成`<h2></h2>`，而且支持很多种语言。
+- 可以用鼠标控制光标的位置，默认的vim只能用上下左右键控制。
+- indent（锯齿），可以直观地分辨初始标签对应的结束标签。
 
 vim和zsh一样，在iTerm上安装好之后，terminal上也能用。
 
