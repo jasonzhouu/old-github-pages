@@ -15,7 +15,7 @@ Mac上默认的命令行工具是bash，自带vim。
 
 界面颜色和字体是在终端工具的preference里设置，将在Solarized官网下载文件，在preference里倒入相应版本的配置文件，之后可以自己对颜色进行调整；字体也是先下载Meslo字体，打开字体文件，点击安装，然后在终端工具的preference里选择Meslo。我用Mac自带的terminal和另外安装的iTerm都设置了一下，iTerm的显示效果更好。
 
-BTW, 命令行工具和终端工具是分离的，我在iTerm上安装了zsh，terminal上的命令行工具也会由默认的bash变成zsh。在iTerm上安装oh-my-zsh，terminal也能用oh-my-zsh上的插件。但是终端工具的显示颜色和字体是需要在各自的preference里设置的。
+BTW：命令行工具和终端工具是分离的，我在iTerm上安装了zsh，terminal上的命令行工具也会由默认的bash变成zsh。在iTerm上安装oh-my-zsh，terminal也能用oh-my-zsh上的插件。但是终端工具的显示颜色和字体是需要在各自的preference里设置的。
 
 ![]({{ site.ur }}/images/Snip20170208_1.png)
 
@@ -33,6 +33,8 @@ spf13-vim安装的插件具有比如以下一些功能：
 - 可以用鼠标控制光标的位置，默认的vim只能用上下左右键控制。
 - indent（锯齿），可以直观地分辨初始标签对应的结束标签。
 
-vim和zsh一样，在iTerm上安装好之后，terminal上也能用。
+和atom/sublime一样，vim的快捷键也非常。但不同的是，vim的大多数操作只能用快捷键完成。这两种IDE的学习成本都很高，要同时掌握必然需要很多时间，我目前而言只需要掌握好atom就行了，atom的功能也是很强大的，我现在还没有熟练掌握。atom和sublime差不多，但atom好像更好用一些，就是启动稍微慢一点，而vim等以后有精力或者有需要再学习，否则可能两种都学不成。
+
+BTW：vim和zsh一样，在iTerm上安装好之后，terminal上也能用。
 
 ![]({{ site.ur }}/images/Snip20170208_2.png)
