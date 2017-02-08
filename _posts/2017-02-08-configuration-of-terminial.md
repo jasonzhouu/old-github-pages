@@ -15,7 +15,7 @@ Mac上默认的命令行工具是bash，自带vim。
 
 界面颜色和字体是在终端工具的preference里设置，将在Solarized官网下载文件，在preference里倒入相应版本的配置文件，之后可以自己对颜色进行调整；字体也是先下载Meslo字体，打开字体文件，点击安装，然后在终端工具的preference里选择Meslo。我用Mac自带的terminal和另外安装的iTerm都设置了一下，iTerm的显示效果更好。
 
-BTW, 命令行工具和终端工具是分离的，我在iTerm上安装zsh的同时，打开terminal用的也会是zsh。在iTerm上安装oh-my-zsh，terminal也一样能用它oh-my-zsh上的插件。但是终端工具的显示颜色和字体是需要在各自的preference里设置的。
+BTW, 命令行工具和终端工具是分离的，我在iTerm上安装了zsh，terminal上的命令行工具也会由默认的bash变成zsh。在iTerm上安装oh-my-zsh，terminal也能用oh-my-zsh上的插件。但是终端工具的显示颜色和字体是需要在各自的preference里设置的。
 
 ![]({{ site.ur }}/images/Snip20170208_1.png)
 
@@ -23,6 +23,12 @@ BTW, 命令行工具和终端工具是分离的，我在iTerm上安装zsh的同�
 
 vim由当初Unix系统上的vi发展而来，vim的最大特点是跨终端，mac, windows, linux系统上都能运行，而且非常稳定。配置云服务器的时候，少不了要用到。
 
-vim也有很多插件和主题，[spf13-vim](http://vim.spf13.com/)将很多受欢迎的插件和主题集成在了一起，安装好之后，可以直接通过～/.vimrc.local的colorscheme参数设置主题，最常见的solarized, onedark都有，但是solarized在mac上有点问题。spf13-vim带有vundle插件，vundle是vim的插件管理工具，相当于node的npm，可以用它下载最新版本的vim插件，和用来升级插件。
+vim也有很多插件和主题，[spf13-vim](http://vim.spf13.com/)将很多受欢迎的插件和主题集成在了一起，安装好之后，可以直接通过～/.vimrc.local的colorscheme参数设置主题，最常见的solarized, onedark都有，但是solarized在mac上有点问题。
+
+spf13-vim带有vundle插件，vundle是vim的插件管理工具，相当于node的npm，可以用它下载最新版本的vim插件，和用来升级插件。
+
+由于spf13-vim带有自动补全插件，安装spf13-vim后，编辑html的标签，也能像atom/sublime一样自动补全了，比如输入h2然后按Tab键就能自动生成`<h2></h2>`，而且支持很多种语言。
+
+vim和zsh一样，在iTerm上安装好之后，terminal上也能用。
 
 ![]({{ site.ur }}/images/Snip20170208_2.png)
