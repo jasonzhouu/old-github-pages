@@ -3,7 +3,13 @@ layout: post
 title: '命令行工具的配置'
 ---
 
-Mac上默认的命令行工具是bash，自带vim。
+Mac上默认的shell是bash，并自带vim，自带终端工具terminal。
+
+shell负责运行CLI程序和进行信息的输入、输出，terminal是shell的包装程序，引用[[What is the difference between shell, console, and terminal?](http://superuser.com/questions/144666/what-is-the-difference-between-shell-console-and-terminal)]的回答：
+
+> The **shell** is the program which actually processes commands and returns output. Most shells also manage foreground and background processes, command history and command line editing. These features (and many more) are standard in `bash`, the most common shell in modern linux systems.
+>
+> A **terminal** refers to a wrapper program which runs a shell. Decades ago, this was a physical device consisting of little more than a monitor and keyboard. As unix/linux systems added better multiprocessing and windowing systems, this terminal concept was abstracted into software. Now you have programs such as [Gnome Terminal](http://directory.fsf.org/project/gnome-terminal/) which launches a window in a Gnome windowing environment which will run a *shell* into which you can enter commands.
 
 ## zsh
 
@@ -15,7 +21,7 @@ Mac上默认的命令行工具是bash，自带vim。
 
 界面颜色和字体是在终端工具的preference里设置，将在Solarized官网下载文件，在preference里倒入相应版本的配置文件，之后可以自己对颜色进行调整；字体也是先下载Meslo字体，打开字体文件，点击安装，然后在终端工具的preference里选择Meslo。我用Mac自带的terminal和另外安装的iTerm都设置了一下，iTerm的显示效果更好。
 
-BTW：命令行工具和终端工具是分离的，我在iTerm上安装了zsh，terminal上的命令行工具也会由默认的bash变成zsh。在iTerm上安装oh-my-zsh，terminal也能用oh-my-zsh上的插件。但是终端工具的显示颜色和字体是需要在各自的preference里设置的。
+BTW：shelll和终端工具是分离的，我在iTerm上安装了zsh，terminal上的命令行工具也会由默认的bash变成zsh。在iTerm上安装oh-my-zsh，terminal也能用oh-my-zsh上的插件。但是终端工具的显示颜色和字体是需要在各自的preference里设置的。
 
 ![]({{ site.ur }}/images/Snip20170208_1.png)
 
