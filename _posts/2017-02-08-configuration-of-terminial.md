@@ -13,7 +13,9 @@ shell负责接收用户命令，比如`git add .`，然后调用相应的应用�
 
 ## zsh
 
-但是有人开发出了zsh，zsh拥有强大的自动补全功能，而且有大量的插件支持。安装[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)后会安装好很多插件，通过~/.zshrc的plugin参数用于管理这些插件，ZSH_THEME参数用于管理界面主题，oh-my-zsh[自带了很多主题](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)，默认的主题是robbyrussell，这个主题我用了很长时间。另外我尝试了的agnoster, [powerline](http://powerline.readthedocs.io/en/latest/index.html), [powerlevel9k](https://github.com/bhilburn/powerlevel9k)，这三种主题很类似，它们给终端的界面提供了很多提示。agnoster是oh-my-zsh自带的，将ZSH_THEME参数设置为agnoster就可以，另外两种需要下载到themes目录，然后也同样的需要设置ZSH_THEME参数。
+但是有人开发出了zsh，zsh拥有强大的自动补全功能，而且有大量的插件支持。安装[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)后会安装好很多插件，通过~/.zshrc的plugin参数用于管理这些插件，ZSH_THEME参数用于管理界面主题，oh-my-zsh[自带了很多主题](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)，默认的主题是robbyrussell，这个主题我用了很长时间。
+
+另外我尝试了的agnoster, [powerline](http://powerline.readthedocs.io/en/latest/index.html), [powerlevel9k](https://github.com/bhilburn/powerlevel9k)，这三种主题很类似，它的命令行有很多提示，而且命令行因为有彩色背景，辨识度很高，robbyrussell主题则容易使命令行和输出结果混在一起，命令多的时候让人很难分辨输出结果对应的是哪一条命令行。agnoster是oh-my-zsh自带的，将ZSH_THEME参数设置为agnoster就可以，另外两种需要下载到themes目录，然后也同样的需要设置ZSH_THEME参数。经过比较，最后我选择了agnoster主题，如下配图所示。
 
 这三种主题需要终端工具安装特定的字体，我用的是Meslo LG M DZ Regular for Powerline，他可以正确的显示powerline上特殊的符号。
 
