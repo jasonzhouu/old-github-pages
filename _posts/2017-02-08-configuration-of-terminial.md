@@ -32,7 +32,9 @@ BTW：shelll和终端工具是分离的，我在iTerm上安装了zsh，terminal�
 
 vim由当初Unix系统上的vi发展而来，vim的最大特点是跨终端，mac, windows, linux系统上都能运行，而且非常稳定。配置云服务器的时候，少不了要用到。
 
-vim也有很多插件和主题，[spf13-vim](http://vim.spf13.com/)将很多受欢迎的插件和主题集成在了一起，安装好之后，可以直接通过～/.vimrc.local的colorscheme参数设置主题，最常见的solarized, onedark都有，但是solarized在mac上有点问题。
+vim也有很多插件和主题，[spf13-vim](http://vim.spf13.com/)将很多受欢迎的插件和主题集成在了一起，安装好之后，可以直接通过～/.vimrc.local的colorscheme参数设置主题，最常见的solarized, onedark都有，但是solarized在mac自带的vim上有点问题，然后选择了onedark。
+
+![]({{ site.ur }}/images/Snip20170208_2.png)
 
 spf13-vim带有vundle插件，vundle是vim的插件管理工具，相当于node的npm，可以用它下载最新版本的vim插件，和用来升级插件。
 
@@ -45,5 +47,3 @@ spf13-vim安装的插件具有比如以下一些功能：
 和atom/sublime一样，vim的快捷键也非常。但不同的是，vim的大多数操作只能用快捷键完成。这两种IDE的学习成本都很高，要同时掌握必然需要很多时间，我目前而言只需要掌握好atom就行了，atom的功能也是很强大的，我现在还没有熟练掌握。atom和sublime差不多，但atom好像更好用一些，就是启动稍微慢一点，而vim等以后有精力或者有需要再学习，否则可能两种都学不成。
 
 BTW：vim和zsh一样，在iTerm上安装好之后，terminal上也能用。
-
-![]({{ site.ur }}/images/Snip20170208_2.png)
