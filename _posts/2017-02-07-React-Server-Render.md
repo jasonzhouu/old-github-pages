@@ -16,11 +16,12 @@ title: 'React Server Render'
 
 ### Server Render的两种改进方案
 
-但是在server render中仍然用这种方法，会造成一些浪费。因为服务器在服务器端render好后将完整的html文件和bundle.js发给浏览器，但是react会将上面的过程又过一遍。这是不需要的，因为已经有完整的页面了。这造成了两个浪费，一是多了一次不必要的ajax请求，二是浏览器多了两次不必要的render。
+但是在server render中仍然用这种方法，会造成一些浪费。因为服务器在服务器端render好后将完整的html文件和bundle.js发给浏览器，但是react会接管整个页面，并将整个页面重新render一遍。这是不需要的，因为已经有完整的页面了。这造成了两个浪费，一是多了一次不必要的ajax请求，二是浏览器多了两次不必要的render。对用户体验带来的影响就是页面“空白”了一会儿。
 
-解决办法是，除去给react组件传空数据的环节，直接进行ajax请求，然后进行渲染。因为已经有完整的页面了，不需要担心ajax请求阻碍页面的第一次渲染的问题。这样可以减少一次组件数据为空的一次渲染，不会造成页面“闪了一下”的结果，整个ajax请求的过程都是在后台进行，对用户不会造成任何影响。而且用ajax请求获得的数据得到的virtual DOM和当前页面的DOM一样，React并不会重新重新渲染，因为React只会渲染改变的部分。但是，还是有一次不必要的ajax请求。
+解决办法是
 
-要避免这次ajax请求，server可以不仅给broswer发送渲染后的完整html，还发送要用到的数据，数据放在window.initialData对象里。React组件直接调用window.initialData对象里的数据，从而避免发起ajax请求。和上面的方法一样，React会发现virtual DOM和真实的DOM一样，从而不会进行重新渲染。这样就避免了这不必要的ajax请求。
+1. **先解决空白的问题。**除去给react组件传空数据的环节，直接进行ajax请求，然后进行渲染。因为已经有完整的页面了，不需要担心ajax请求阻碍页面的第一次渲染的问题。这样可以减少一次数据为空的渲染，不会造成页面空白的结果，整个ajax请求的过程在后台进行，对页面不会造成任何影响。而且用ajax请求获得的数据得到的virtual DOM和当前页面的DOM一样，React并不会重新渲染，因为React只会渲染改变的部分。但还是有一次不必要的ajax请求。
+2. **要避免这次ajax请求**，server可以不仅给broswer发送渲染后的完整html，还发送要用到的数据，数据放在window.initialData对象里。React组件直接调用window.initialData对象里的数据，从而避免发起ajax请求。和上面的方法一样，React会发现virtual DOM和真实的DOM一样，从而不会进行重新渲染。这样就避免了这不必要的ajax请求。
 
 但是，React调用数据产生virtual DOM和server render产生的DOM进行Diff运算，这个环节是无法避免的。因为React要保证有一个virtual DOM在内存中。
 
