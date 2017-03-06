@@ -23,7 +23,7 @@ title: 'Online Presentation 技术可行性分析'
 
 **缺点：**后端需要做的事情更多，需要学习和使用Sharepoint，及C#语言和ASP.NET框架。
 
-<iframe width='630px' height='367px' id="fullframe" src="http://ppt.dongboke.com/p/PowerPointFrame.aspx?WOPISrc=http%3a%2f%2f192.168.164.1%3a888%2fwopi%2ffiles%2f1333197136400998400-1333535900816105472-1.ppt%3fa%3d1&amp;PowerPointView=SlideShowView" frameborder="0"></iframe>
+<iframe width="700px" height="385px" src="http://ppt.dongboke.com/p/PowerPointFrame.aspx?WOPISrc=http%3a%2f%2f192.168.164.1%3a888%2fwopi%2ffiles%2f1333197136400998400-1333535900816105472-1.ppt%3fa%3d1&amp;PowerPointView=SlideShowView"></iframe>
 
 ### PDF.js
 
