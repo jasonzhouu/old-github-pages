@@ -32,3 +32,13 @@ title: 'Online Presentation 技术可行性分析'
 **优点：**可以实现broadcast。
 
 **缺点：**没有PPT的动画效果。
+
+## [百度云文档服务 DOC](https://cloud.baidu.com/product/doc.html)
+
+可以实现：
+
+- 加载在线文档
+- 加载文档时指定页码
+- 文档阅读翻页事件
+
+从而实现广播。
