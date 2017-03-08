@@ -9,6 +9,7 @@ title: 'Online Presentation技术选型'
 | ------------------ | ---------------------------------------- |
 | PPT                | [百度云DOC](https://cloud.baidu.com/product/doc.html) |
 | Audio/Video stream | [阿里云视频直播](https://www.aliyun.com/product/live/?spm=5176.8064714.321464.4.Xkbgoj) |
-| IM                 | 网易云信                                     |
+| IM                 | [网易云信](http://netease.im/?&from=bdhjjsq&url_targeting=1) |
+| Server             | [阿里云](https://www.aliyun.com/)           |
 | Real-time drawing  | [react-skecthpad](https://github.com/svrcekmichal/react-sketchpad) |
 | Data Management    | Redux, MongoDB                           |
