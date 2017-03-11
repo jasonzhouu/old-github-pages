@@ -9,11 +9,7 @@ title: 'Online Presentation 技术可行性分析'
 
 2009年微软发布PowerPoint Web Apps，2014年改名为PowerPoint Online。
 
-**技术实现：**用户上传PPT，前端向后端发起POST请求到指定的URL，后端收到文件后将PPT重命名，放到指定的目录，并在数据库里记录文件名。在前端页面插入https://view.officessapps.live.com指定src的<iframe>，src的src参数为文件路径，这样即可在浏览器上观看并控制PPT。或者，在服务器安装Office Web Apps Server，配置好WOPI协议，或者作为SharePoint的app安装。
-
-> The service can also be installed privately in enterprise environments as a [SharePoint](https://en.m.wikipedia.org/wiki/SharePoint) app, or through Office Web Apps Server.
->
-> https://en.m.wikipedia.org/wiki/Office_Online
+**技术实现：**用户上传PPT，前端向后端发起POST请求到指定的URL，后端收到文件后将PPT重命名，放到指定的目录，并在数据库里记录文件名。
 
 **优点：**
 
@@ -24,13 +20,19 @@ title: 'Online Presentation 技术可行性分析'
 
 1. #### 用view.officeapp.live.com
 
-需要访问微软的服务器，访问速度很慢。
+在前端页面插入https://view.officessapps.live.com指定src的<iframe>，src的src参数为文件路径，这样即可在浏览器上观看并控制PPT。但是需要访问微软的服务器，访问速度很慢。
 
 <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http%3A%2F%2Fvideo%2Ech9%2Ems%3A80%2Fbuild%2F2011%2Fslides%2FTOOL%2D532T%5FSutter%2Epptx&wdAr=1.7777777777777777' width='610px' height='367px' frameborder='0'>这是嵌入 <a target='_blank' href='https://office.com'>Microsoft Office</a> 演示文稿，由 <a target='_blank' href='https://office.com/webapps'>Office Online</a> 支持。</iframe>
 
 2. #### 自建服务器
 
-访问自己国内的服务器，对访问速度拥有更大的控制。
+或者，用自己的服务器提供 Office Online 服务，访问自己国内的服务器，对访问速度拥有更大的控制。这有两种安装方法：
+
+- 安装 Office Web Apps Server，配置好WOPI协议
+- 作为SharePoint的app安装
+
+> The service can also be installed privately in enterprise environments as a [SharePoint](https://en.m.wikipedia.org/wiki/SharePoint) app, or through Office Web Apps Server.
+> source: https://en.m.wikipedia.org/wiki/Office_Online
 
 <iframe width="700px" height="385px" src="http://ppt.dongboke.com/p/PowerPointFrame.aspx?WOPISrc=http%3a%2f%2f192.168.164.1%3a888%2fwopi%2ffiles%2f1333197136400998400-1333535900816105472-1.ppt%3fa%3d1&amp;PowerPointView=SlideShowView"></iframe>
 
@@ -48,11 +50,7 @@ title: 'Online Presentation 技术可行性分析'
 
 ## [百度云文档服务 DOC](https://cloud.baidu.com/product/doc.html)
 
-可以实现：
-
-- 加载在线文档
-- 加载文档时指定页码
-- 文档阅读翻页事件
+可以实现：加载在线文档、加载文档时指定页码、文档阅读翻页事件
 
 **优点：**
 
