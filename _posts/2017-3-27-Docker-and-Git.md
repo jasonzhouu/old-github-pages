@@ -1,5 +1,5 @@
 ---
-layout: psot
+layout: post
 title: '结合Git Docker进行部署'
 ---
 
